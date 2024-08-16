@@ -1,7 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://c36d3eitl85ge"]
+[gd_scene load_steps=35 format=3 uid="uid://c36d3eitl85ge"]
 
-[ext_resource type="Script" path="res://Character_movement.gd" id="1_f5qxr"]
-[ext_resource type="Texture2D" uid="uid://itlexlkyrkav" path="res://Character_anims.png" id="2_lemil"]
+[ext_resource type="Script" path="res://scripts/Character_movement.gd" id="1_f5qxr"]
+[ext_resource type="Texture2D" uid="uid://itlexlkyrkav" path="res://assets/sprites/Character_anims.png" id="2_lemil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tl53h"]
 size = Vector2(52, 70)
@@ -244,11 +244,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ke8io"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcoot"]
-size = Vector2(1415.5, 20)
-
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -261,10 +256,3 @@ shape = SubResource("RectangleShape2D_tl53h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_pl3ap")
 animation = &"jump_right"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_ke8io")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(578.25, 296)
-shape = SubResource("RectangleShape2D_xcoot")
