@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://0i4ugusd32af"]
 
-[ext_resource type="PackedScene" path="res://scene/seesaw_arm.tscn" id="1_11mx1"]
+[ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
 [ext_resource type="Script" path="res://scripts/Character_movement.gd" id="2_t1t5y"]
 [ext_resource type="Texture2D" uid="uid://b1wb6ssja2lnv" path="res://assets/sprites/Character_anims.png" id="3_dj5k6"]
 
@@ -261,9 +261,6 @@ offset_right = 240.0
 offset_bottom = 93.0
 text = "- length"
 
-[node name="SeesawArm" parent="." instance=ExtResource("1_11mx1")]
-position = Vector2(332, 542)
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(597, 192)
 script = ExtResource("2_t1t5y")
@@ -276,5 +273,8 @@ shape = SubResource("RectangleShape2D_sxswl")
 sprite_frames = SubResource("SpriteFrames_x7qds")
 animation = &"run_right"
 
-[connection signal="pressed" from="increaselengthbutton" to="SeesawArm" method="_increase_length"]
-[connection signal="pressed" from="decreaselengthbutton" to="SeesawArm" method="_decrease_length"]
+[node name="Seesaw" parent="." instance=ExtResource("2_fnwyl")]
+position = Vector2(940, 649)
+
+[connection signal="pressed" from="increaselengthbutton" to="Seesaw" method="_increase_length"]
+[connection signal="pressed" from="decreaselengthbutton" to="Seesaw" method="_decrease_length"]
