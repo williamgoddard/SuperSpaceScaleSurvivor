@@ -23,9 +23,3 @@ func _physics_process(delta):
 			tile_map.set_cell(0, Vector2(i, 0), -1)
 		tile_map.set_cell(0, Vector2(length, 0), 0, Vector2(2,0))
 		previous_length = length
-
-func _increase_length():
-	length += 1
-	
-func _decrease_length():
-	length -= 1
