@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0i4ugusd32af"]
 
-[ext_resource type="PackedScene" uid="uid://spe5oqlb2bqt" path="res://scene/seesaw_arm.tscn" id="1_11mx1"]
+[ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
 [ext_resource type="PackedScene" uid="uid://c36d3eitl85ge" path="res://scene/Character_2d.tscn" id="2_nb7xd"]
 
 [node name="game" type="Node2D"]
@@ -19,11 +19,11 @@ offset_right = 240.0
 offset_bottom = 93.0
 text = "- length"
 
-[node name="SeesawArm" parent="." instance=ExtResource("1_11mx1")]
-position = Vector2(332, 542)
-
 [node name="Node2D" parent="." instance=ExtResource("2_nb7xd")]
-position = Vector2(411, 244)
+position = Vector2(651, 261)
 
-[connection signal="pressed" from="increaselengthbutton" to="SeesawArm" method="_increase_length"]
-[connection signal="pressed" from="decreaselengthbutton" to="SeesawArm" method="_decrease_length"]
+[node name="Seesaw" parent="." instance=ExtResource("2_fnwyl")]
+position = Vector2(919, 557)
+
+[connection signal="pressed" from="increaselengthbutton" to="Seesaw" method="_increase_length"]
+[connection signal="pressed" from="decreaselengthbutton" to="Seesaw" method="_decrease_length"]
