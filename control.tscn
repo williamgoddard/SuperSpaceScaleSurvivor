@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ixxeh6fnovlw"]
+[gd_scene format=3 uid="uid://dkn0ogvh27fhb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,4 +14,5 @@ offset_left = 406.0
 offset_top = 152.0
 offset_right = 632.0
 offset_bottom = 308.0
-text = "vik bad"
+text = "vik is vik
+"
