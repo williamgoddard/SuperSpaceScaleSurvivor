@@ -36,6 +36,7 @@ text = "spawn_enemy"
 
 [node name="Enemies_spawn" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_7jqjp")]
 enemy_scene = ExtResource("4_ycfh4")
+spawn_radius = 100.0
 target_node = NodePath("../Node2D")
 
 [connection signal="pressed" from="increaselengthbutton" to="Seesaw" method="_increase_length"]
