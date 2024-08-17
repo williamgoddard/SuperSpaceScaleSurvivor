@@ -29,6 +29,7 @@ offset_bottom = -345.0
 text = "- length"
 
 [node name="Seesaw" parent="." instance=ExtResource("2_fnwyl")]
+rotation = 2.35761
 
 [node name="Fake_player" parent="Seesaw" instance=ExtResource("7_flua2")]
 actual_player = NodePath("../../Player")
