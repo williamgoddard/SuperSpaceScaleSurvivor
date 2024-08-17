@@ -1,23 +1,15 @@
 extends Node2D
 
 @export var actual_player: NodePath
-@export var rotation_root: NodePath
 
 var actual_player_node: Node2D
-var rotation_root_node: Node2D
 
 func _ready():
 	actual_player_node = get_node(actual_player)
-	rotation_root_node = get_node(rotation_root)
 
 func _process(delta):
-	if actual_player_node and rotation_root_node:
-		var global_position = actual_player_node.global_position
-
-
-		var local_position = rotation_root_node.to_local(global_position)
-
-		position = local_position
+	position.x = actual_player_node.position.x - 3000
+	position.y = actual_player_node.position.y
 	#update_animation()
 
 
