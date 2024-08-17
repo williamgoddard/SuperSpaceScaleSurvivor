@@ -6,7 +6,7 @@ const ACCELERATION = 1000.0
 const DECELERATION = 600.0
 const AIR_CONTROL = 0.3
 const FRICTION = 0.5
-const gravity_strength = 800.0
+const gravity_strength = 30.0
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var can_double_jump = false
@@ -20,7 +20,7 @@ func _physics_process(delta):
 	
 	var parent_rotation = get_parent().rotation
 	var gravity_direction = Vector2(gravity_strength * sin(parent_rotation), gravity_strength * cos(parent_rotation))
-	velocity += gravity_direction * delta
+	velocity += gravity_direction * gravity_strength * delta
 	# Gravity
 	#if not is_on_floor():
 		#velocity.y += GRAVITY * delta
