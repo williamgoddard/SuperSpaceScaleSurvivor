@@ -11,6 +11,7 @@
 [node name="game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -1000
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_jqsxt")
 
@@ -32,6 +33,7 @@ text = "- length"
 rotation = 2.35761
 
 [node name="Fake_player" parent="Seesaw" instance=ExtResource("7_flua2")]
+z_index = -1
 actual_player = NodePath("../../Player")
 
 [node name="spawn_enemy" type="Button" parent="."]
