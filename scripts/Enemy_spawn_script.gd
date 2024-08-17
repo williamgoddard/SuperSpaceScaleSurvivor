@@ -17,7 +17,7 @@ func spawn_enemy():
 	enemy.look_at(target_node.position)
 
 func random_point_on_circle(radius: float) -> Vector2:
-	var angle = randf() * TAU  # 2pi
+	var angle = randf() * TAU  # TAU is 2 * PI
 	var x = radius * cos(angle)
 	var y = radius * sin(angle)
 	return Vector2(x, y)
