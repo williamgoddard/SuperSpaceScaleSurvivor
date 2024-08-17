@@ -1,39 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://0i4ugusd32af"]
+[gd_scene load_steps=6 format=3 uid="uid://0i4ugusd32af"]
 
+[ext_resource type="Texture2D" uid="uid://c0jb51a2j0jo7" path="res://assets/sprites/background.bmp" id="1_xvvc4"]
 [ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
 [ext_resource type="PackedScene" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
 [ext_resource type="PackedScene" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
+[ext_resource type="Script" path="res://scene/rotate_camera.gd" id="5_5fx53"]
 
 [node name="game" type="Node2D"]
 
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_xvvc4")
+
 [node name="increaselengthbutton" type="Button" parent="."]
-offset_left = 70.0
-offset_top = 64.0
-offset_right = 141.0
-offset_bottom = 95.0
+offset_left = -606.0
+offset_top = -376.0
+offset_right = -535.0
+offset_bottom = -345.0
 text = "+ length"
 
 [node name="decreaselengthbutton" type="Button" parent="."]
-offset_left = 169.0
-offset_top = 62.0
-offset_right = 240.0
-offset_bottom = 93.0
+offset_left = -513.0
+offset_top = -376.0
+offset_right = -442.0
+offset_bottom = -345.0
 text = "- length"
 
 [node name="Seesaw" parent="." instance=ExtResource("2_fnwyl")]
-position = Vector2(940, 649)
-rotation = 1.09488
 
 [node name="spawn_enemy" type="Button" parent="."]
-offset_left = 82.0
-offset_top = 109.0
-offset_right = 200.0
-offset_bottom = 140.0
+offset_left = -598.0
+offset_top = -330.0
+offset_right = -480.0
+offset_bottom = -299.0
 text = "spawn_enemy"
 
 [node name="Enemies_spawn" parent="." instance=ExtResource("3_7jqjp")]
 enemy_scene = ExtResource("4_ycfh4")
 spawn_radius = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+rotation_smoothing_enabled = true
+script = ExtResource("5_5fx53")
 
 [connection signal="pressed" from="increaselengthbutton" to="Seesaw" method="_increase_length"]
 [connection signal="pressed" from="decreaselengthbutton" to="Seesaw" method="_decrease_length"]
