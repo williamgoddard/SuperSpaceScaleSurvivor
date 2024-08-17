@@ -4,7 +4,7 @@ extends Node2D
 @onready var offscreen_seesaw = $OffscreenSeesaw
 @onready var player = $Player
 
-const MAX_ROTATION_SPEED = 60
+const MAX_ROTATION_SPEED = 75
 
 @export var seesaw_length := 10.0:
 	set(value):
@@ -36,6 +36,9 @@ func _process(delta):
 		var player_position_fraction := player_position / seesaw_length
 		#rotation_speed += (MAX_ROTATION_SPEED * player_position_fraction) * delta
 		rotation_speed = lerp(rotation_speed, (MAX_ROTATION_SPEED**2) * player_position_fraction * delta, 1)
+	else:
+		
+		rotation_speed = lerp(rotation_speed, (0 * delta), 0.01)
 		
 
 # Called when the node enters the scene tree for the first time.
