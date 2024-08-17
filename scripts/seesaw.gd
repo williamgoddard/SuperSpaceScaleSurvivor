@@ -18,14 +18,3 @@ extends Node2D
 		seesaw_arm_right.position.x = -24 + (48 * length_fraction)
 		seesaw_arm_left.position.x = 24 - (48 * length_fraction)
 		seesaw_arm_left.length = length_floored
-		
-@export var decay_speed = 0.2
-		
-func _increase_length():
-	length += 1
-	
-func _decrease_length():
-	length -= 1
-
-func _physics_process(delta):
-	length -= decay_speed * delta
