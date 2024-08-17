@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/seesaw.gd" id="1_jbkeq"]
 [ext_resource type="PackedScene" uid="uid://spe5oqlb2bqt" path="res://scene/seesaw_arm.tscn" id="1_u1m4e"]
-[ext_resource type="Texture2D" uid="uid://buw2woyx4gvc5" path="res://assets/sprites/seesaw.bmp" id="3_odmsc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1dv2d"]
+load_path = "res://.godot/imported/seesaw.bmp-08c442acdb7b828a7e8607e58f65a745.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3mgx"]
-texture = ExtResource("3_odmsc")
+texture = SubResource("CompressedTexture2D_1dv2d")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
