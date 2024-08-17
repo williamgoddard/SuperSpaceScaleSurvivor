@@ -6,16 +6,24 @@ const ACCELERATION = 1000.0
 const DECELERATION = 600.0
 const AIR_CONTROL = 0.3
 const FRICTION = 0.5
+const gravity_strength = 30.0
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var can_double_jump = false
 var is_jumping = false
 var facing_right
+func _ready():
+		if not get_parent():
+			push_error("Parent node not found")
 
 func _physics_process(delta):
+	
+	var parent_rotation = get_parent().rotation
+	var gravity_direction = Vector2(gravity_strength * sin(parent_rotation), gravity_strength * cos(parent_rotation))
+	velocity += gravity_direction * gravity_strength * delta
 	# Gravity
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+	#if not is_on_floor():
+		#velocity.y += GRAVITY * delta
 
 	# Input
 	var input_direction = Input.get_axis("ui_left", "ui_right")
