@@ -24,6 +24,10 @@ WwiseRuntimeManager="*res://addons/Wwise/runtime/wwise_runtime_manager.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[physics]
+
+2d/default_gravity=1400.0
+
 [wwise]
 
 common_user_settings/base_path="res://GeneratedSoundBanks"

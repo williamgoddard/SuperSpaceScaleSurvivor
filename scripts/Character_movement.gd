@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-const MAX_SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const ACCELERATION = 1000.0
-const DECELERATION = 600.0
-const AIR_CONTROL = 0.3
-const FRICTION = 0.5
+const MAX_SPEED = 500.0
+const JUMP_VELOCITY = -700.0
+const ACCELERATION = 1500.0
+const DECELERATION = 1500.0
+const AIR_CONTROL = 0.8
+const FRICTION = 1
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var can_double_jump = false

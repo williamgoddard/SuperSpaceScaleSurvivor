@@ -4,7 +4,7 @@ extends Node2D
 @onready var offscreen_seesaw = $OffscreenSeesaw
 @onready var player = $Player
 
-const MAX_ROTATION_SPEED = 90
+const MAX_ROTATION_SPEED = 60
 
 @export var seesaw_length := 10.0:
 	set(value):
