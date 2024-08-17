@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://0i4ugusd32af"]
 
 [ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
-[ext_resource type="PackedScene" uid="uid://vctv5uemo380" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
-[ext_resource type="PackedScene" uid="uid://cxy6acev7f1gj" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
+[ext_resource type="PackedScene" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
+[ext_resource type="PackedScene" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
 
 [node name="game" type="Node2D"]
 
