@@ -1,15 +1,11 @@
 extends CharacterBody2D
 
-var speed : float = 100.0
-@export var center_node : Node2D
+@export var speed : float = 100.0
+var center_node
 
 func _ready():
-	pass
+	center_node = get_parent().get_parent().get_node("Target_node")
 
 func _physics_process(delta: float):
-	# Calculate the direction towards the center_node
-	var direction = (center_node.position - position).normalized()
-	# Apply speed to the direction
-	velocity = direction * speed
-	# Use move_and_slide to move the character
+	velocity = (center_node.position - position).normalized()
 	move_and_slide()
