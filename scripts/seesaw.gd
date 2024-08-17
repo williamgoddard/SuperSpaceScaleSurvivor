@@ -12,9 +12,8 @@ extends Node2D
 		else:
 			length = value
 		var length_floored = floor(length)
+		var length_fraction = length - length_floored
 		seesaw_arm_right.length = length_floored
 		seesaw_arm_left.length = length_floored
-		var length_fraction = length - length_floored
 		seesaw_arm_right.position.x = -24 + (48 * length_fraction)
 		seesaw_arm_left.position.x = 24 - (48 * length_fraction)
-		seesaw_arm_left.length = length_floored
