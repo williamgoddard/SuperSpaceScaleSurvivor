@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 const ACCELERATION = 1000.0
 const DECELERATION = 600.0
 const AIR_CONTROL = 0.3
-const FRICTION = 0.05
+const FRICTION = 0.5
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var can_double_jump = false
@@ -67,20 +67,30 @@ func _physics_process(delta):
 func update_animation():
 	if is_on_floor():
 		if velocity.x == 0:
+			
 			# Idle animation
 			if facing_right:
 				$AnimatedSprite2D.play("idle")
 			else:
 				$AnimatedSprite2D.play("idle")
 		else:
-			# Run animation
+			#run animation
 			if facing_right:
 				$AnimatedSprite2D.play("run_right")
 			else:
 				$AnimatedSprite2D.play("run_left")
 	else:
-		# Jump animation
-		if facing_right:
-			$AnimatedSprite2D.play("jump_right")
+		if velocity.x == 0 and velocity.y > 0:
+			$AnimatedSprite2D.play("jump_idle")
+		elif velocity.x > 0  and velocity.y > 0:
+			if facing_right:
+				$AnimatedSprite2D.play("jump_right")
+			else:
+				$AnimatedSprite2D.play("jump_left")
+		elif velocity.x == 0:
+			$AnimatedSprite2D.play("fall_idle")
 		else:
-			$AnimatedSprite2D.play("jump_left")
+			if facing_right:
+				$AnimatedSprite2D.play("fall_right")
+			else:
+				$AnimatedSprite2D.play("fall_left")
