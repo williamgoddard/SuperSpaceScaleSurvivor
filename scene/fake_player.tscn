@@ -286,5 +286,6 @@ animations = [{
 script = ExtResource("1_5yjkb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_04jq1")
 animation = &"fall_idle"

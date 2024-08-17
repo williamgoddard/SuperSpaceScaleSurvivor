@@ -21,6 +21,7 @@ texture = ExtResource("1_jqsxt")
 
 [node name="Fake_player" parent="Seesaw" instance=ExtResource("7_flua2")]
 z_index = -1
+scale = Vector2(2, 2)
 actual_player = NodePath("../../Player")
 
 [node name="Camera2D" type="Camera2D" parent="Seesaw"]
@@ -44,5 +45,6 @@ position = Vector2(3000, 0)
 
 [node name="Player" parent="." instance=ExtResource("7_tx7k4")]
 position = Vector2(3000, -149)
+scale = Vector2(2, 2)
 
 [connection signal="pressed" from="spawn_enemy" to="Enemies_spawn" method="_on_spawn_enemy_pressed"]
