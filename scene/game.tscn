@@ -1,14 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0i4ugusd32af"]
+[gd_scene load_steps=4 format=3 uid="uid://0i4ugusd32af"]
 
-[ext_resource type="PackedScene" uid="uid://dp6hjt66i51sc" path="res://scene/Character_2d.tscn" id="1_5ixs3"]
 [ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
-[ext_resource type="PackedScene" uid="uid://vctv5uemo380" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
-[ext_resource type="PackedScene" uid="uid://cxy6acev7f1gj" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
+[ext_resource type="PackedScene" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
+[ext_resource type="PackedScene" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
 
 [node name="game" type="Node2D"]
-
-[node name="Node2D" parent="." instance=ExtResource("1_5ixs3")]
-position = Vector2(540, 186)
 
 [node name="increaselengthbutton" type="Button" parent="."]
 offset_left = 70.0
@@ -26,6 +22,7 @@ text = "- length"
 
 [node name="Seesaw" parent="." instance=ExtResource("2_fnwyl")]
 position = Vector2(940, 649)
+rotation = 1.09488
 
 [node name="spawn_enemy" type="Button" parent="."]
 offset_left = 82.0
@@ -34,10 +31,9 @@ offset_right = 200.0
 offset_bottom = 140.0
 text = "spawn_enemy"
 
-[node name="Enemies_spawn" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_7jqjp")]
+[node name="Enemies_spawn" parent="." instance=ExtResource("3_7jqjp")]
 enemy_scene = ExtResource("4_ycfh4")
 spawn_radius = 100.0
-target_node = NodePath("../Node2D")
 
 [connection signal="pressed" from="increaselengthbutton" to="Seesaw" method="_increase_length"]
 [connection signal="pressed" from="decreaselengthbutton" to="Seesaw" method="_decrease_length"]

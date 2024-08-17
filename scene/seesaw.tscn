@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bej7640e6kw1g"]
+[gd_scene load_steps=4 format=3 uid="uid://bej7640e6kw1g"]
 
 [ext_resource type="Script" path="res://scripts/seesaw.gd" id="1_jbkeq"]
 [ext_resource type="PackedScene" uid="uid://spe5oqlb2bqt" path="res://scene/seesaw_arm.tscn" id="1_u1m4e"]
+[ext_resource type="PackedScene" uid="uid://c36d3eitl85ge" path="res://scene/Character_2d.tscn" id="3_fuiuf"]
 
 [node name="Seesaw" type="Node2D"]
 script = ExtResource("1_jbkeq")
@@ -10,3 +11,6 @@ script = ExtResource("1_jbkeq")
 
 [node name="SeesawArmLeft" parent="." instance=ExtResource("1_u1m4e")]
 scale = Vector2(-1, 1)
+
+[node name="Node2D" parent="." instance=ExtResource("3_fuiuf")]
+position = Vector2(3, -169)
