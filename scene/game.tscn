@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://0i4ugusd32af"]
 
 [ext_resource type="PackedScene" uid="uid://dp6hjt66i51sc" path="res://scene/Character_2d.tscn" id="1_5ixs3"]
-[ext_resource type="Texture2D" uid="uid://c0jb51a2j0jo7" path="res://assets/sprites/background.bmp" id="1_xvvc4"]
+[ext_resource type="Texture2D" uid="uid://bdh7sjil13887" path="res://assets/sprites/background.png" id="1_jqsxt"]
 [ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
 [ext_resource type="PackedScene" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
 [ext_resource type="PackedScene" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
@@ -11,7 +11,7 @@
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_xvvc4")
+texture = ExtResource("1_jqsxt")
 
 [node name="increaselengthbutton" type="Button" parent="."]
 offset_left = -606.0
