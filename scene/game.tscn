@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c0jb51a2j0jo7" path="res://assets/sprites/background.bmp" id="1_xvvc4"]
 [ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
-[ext_resource type="PackedScene" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
-[ext_resource type="PackedScene" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
+[ext_resource type="PackedScene" uid="uid://vctv5uemo380" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
+[ext_resource type="PackedScene" uid="uid://cxy6acev7f1gj" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
 [ext_resource type="Script" path="res://scene/rotate_camera.gd" id="5_5fx53"]
 
 [node name="game" type="Node2D"]
