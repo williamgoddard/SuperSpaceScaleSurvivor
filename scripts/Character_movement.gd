@@ -6,40 +6,42 @@ const ACCELERATION = 1000.0
 const DECELERATION = 600.0
 const AIR_CONTROL = 0.3
 const FRICTION = 0.5
-const gravity_strength = 800.0
-var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity_strength = 800.0
 
 var can_double_jump = false
 var is_jumping = false
-var facing_right
+var facing_right = true
+
 func _ready():
-		if not get_parent():
-			push_error("Parent node not found")
+	if not get_parent():
+		push_error("Parent node not found")
 
 func _physics_process(delta):
-	
-	var parent_rotation = get_parent().rotation
-	var gravity_direction = Vector2(gravity_strength * sin(parent_rotation), gravity_strength * cos(parent_rotation))
+	var parent_transform = global_transform
+
+	# Check and print the parent's transform to debug
+	print(parent_transform)
+
+	# Apply gravity in the direction of the parent's y-axis
+	var gravity_direction = parent_transform.y * gravity_strength
 	velocity += gravity_direction * delta
-	# Gravity
-	#if not is_on_floor():
-		#velocity.y += GRAVITY * delta
 
-	# Input
+	# Handle input direction (left or right)
 	var input_direction = Input.get_axis("ui_left", "ui_right")
+	var move_direction = parent_transform.x * input_direction
 
-	# Smoother acceleration and deceleration using move_toward
+	# Apply movement with smooth acceleration and deceleration
 	if input_direction != 0:
-		velocity.x = move_toward(velocity.x, input_direction * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(move_direction * MAX_SPEED, ACCELERATION * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
+		velocity = velocity.move_toward(Vector2.ZERO, DECELERATION * delta)
 
 	# Air control and momentum preservation
 	if not is_on_floor():
-		velocity.x = move_toward(velocity.x, input_direction * MAX_SPEED, AIR_CONTROL * delta)
-		velocity.x *= 1.0 - FRICTION * delta
+		velocity = velocity.move_toward(move_direction * MAX_SPEED, AIR_CONTROL * delta)
+		velocity *= 1.0 - FRICTION * delta
 
-	# Jumping with variable height
+	# Jumping logic
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -49,19 +51,15 @@ func _physics_process(delta):
 			can_double_jump = false
 			is_jumping = true
 
-	# Allow holding jump to jump higher
+	# Control jump height
 	if is_jumping and not Input.is_action_pressed("ui_accept"):
 		if velocity.y < JUMP_VELOCITY / 2:
 			velocity.y = JUMP_VELOCITY / 2
 		is_jumping = false
 
-	# Reset double jump flag on landing
+	# Reset double jump on landing
 	if is_on_floor():
 		can_double_jump = true
-
-	# Check if on ground to reset jumping state
-	if is_on_floor():
-		is_jumping = false
 
 	# Determine facing direction
 	if input_direction != 0:
@@ -70,6 +68,7 @@ func _physics_process(delta):
 	# Update animations
 	update_animation()
 
+	# Move the character with the adjusted velocity
 	move_and_slide()
 
 func update_animation():
