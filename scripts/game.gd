@@ -43,10 +43,11 @@ func _process(delta):
 			var player_position : float = (player.position.x - 3000) / 48
 			var player_position_fraction := player_position / seesaw_length
 			rotation_speed = lerp(rotation_speed, (MAX_ROTATION_SPEED**2) * player_position_fraction * delta, 0.1)
-		elif rotation_speed <= MAX_ROTATION_SPEED:
-			rotation_speed = lerp(rotation_speed, (0 * delta), 0.01)
+		elif abs(rotation_speed) <= MAX_ROTATION_SPEED:
+			rotation_speed = lerp(rotation_speed, 0.0, 0.01)
 		else:
-			rotation_speed = lerp(rotation_speed, (0 * delta), 0.1)
+			rotation_speed = lerp(rotation_speed, 0.0, 0.1)
+	print(rotation_speed)
 		
 	score_delta_tracker += delta * 10
 	if score_delta_tracker > 1:
