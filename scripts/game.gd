@@ -54,8 +54,11 @@ func _process(delta):
 func _ground_pound():
 	var player_position : float = (player.position.x - 3000) / 48
 	var player_position_fraction := player_position / seesaw_length
-	rotation_speed = (sign(player_position_fraction) * MAX_ROTATION_SPEED / 2) + (player_position_fraction * MAX_ROTATION_SPEED * 15)
+	rotation_speed = (sign(player_position_fraction) * MAX_ROTATION_SPEED / 2) + (player_position_fraction * MAX_ROTATION_SPEED * 12)
 	ground_pound_timer = 0.5
+	
+func _enemy_died():
+	score += floor(rotation_speed)
 
 func set_sewsaw_lengths():
 	seesaw.length = seesaw_length

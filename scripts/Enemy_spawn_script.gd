@@ -1,5 +1,7 @@
 extends Node2D
 
+signal enemy_died()
+
 @export  var enemy_scene : PackedScene
 @export var spawn_radius : float = 200.0
 @export var target_node : Node2D
@@ -10,6 +12,7 @@ func _ready():
 
 func spawn_enemy():
 	enemy = enemy_scene.instantiate()
+	enemy.enemy_died.connect(_on_enemy_death)
 	enemy.position = random_point_on_circle(spawn_radius)
 	enemy.set_name('Enemy '+ str(get_child_count()+1))
 	enemy.target_node = target_node
@@ -30,3 +33,6 @@ func random_point_on_circle(radius: float) -> Vector2:
 func _on_spawn_enemy_pressed():
 	spawn_enemy()
 	pass # Replace with function body.
+
+func _on_enemy_death():
+	enemy_died.emit()
