@@ -16,7 +16,7 @@ const MAX_ROTATION_SPEED = 75
 			seesaw_length = value
 		set_sewsaw_lengths()
 
-@export var decay_speed = 0.2
+@export var decay_speed = 0.1
 
 @export var rotation_speed := 0.0:
 	set(value):
