@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://0i4ugusd32af"]
+[gd_scene load_steps=11 format=3 uid="uid://0i4ugusd32af"]
 
 [ext_resource type="Texture2D" uid="uid://bdh7sjil13887" path="res://assets/sprites/background.png" id="1_jqsxt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_twg24"]
 [ext_resource type="PackedScene" uid="uid://bej7640e6kw1g" path="res://scene/seesaw.tscn" id="2_fnwyl"]
-[ext_resource type="PackedScene" uid="uid://vctv5uemo380" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
-[ext_resource type="PackedScene" uid="uid://cxy6acev7f1gj" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
+[ext_resource type="PackedScene" path="res://scene/enemies_spawn.tscn" id="3_7jqjp"]
+[ext_resource type="PackedScene" uid="uid://cif0tabgh0qmo" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
 [ext_resource type="PackedScene" uid="uid://bcct3gmvh4p0l" path="res://scene/fake_player.tscn" id="7_flua2"]
-[ext_resource type="PackedScene" uid="uid://dwk47itt7ud2v" path="res://scene/player.tscn" id="7_tx7k4"]
+[ext_resource type="PackedScene" uid="uid://bue4wcy5ke1vr" path="res://scene/player.tscn" id="7_tx7k4"]
+[ext_resource type="FontFile" uid="uid://xukl87x58yxf" path="res://assets/fonts/PressStart2P.ttf" id="8_3b82y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7g0w"]
 size = Vector2(775.001, 6.16846)
@@ -55,6 +56,16 @@ offset_top = 46.0
 offset_right = 177.0
 offset_bottom = 77.0
 text = "spawn_enemy"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1115.0
+offset_top = 10.0
+offset_right = 1915.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("8_3b82y")
+theme_override_font_sizes/font_size = 40
+text = "00000000000000000000"
+horizontal_alignment = 2
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(2136, 0)

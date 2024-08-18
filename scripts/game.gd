@@ -3,6 +3,7 @@ extends Node2D
 @onready var seesaw = $Seesaw
 @onready var offscreen_seesaw = $OffscreenSeesaw
 @onready var player = $Player
+@onready var score_label = $CanvasLayer/ScoreLabel
 
 const MAX_ROTATION_SPEED = 75
 
@@ -26,6 +27,11 @@ const MAX_ROTATION_SPEED = 75
 			rotation_speed = -MAX_ROTATION_SPEED
 		else:
 			rotation_speed = value
+			
+@export var score := 0:
+	set(value):
+		score_label.text = str(score)
+		score = value
 
 func _process(delta):
 	seesaw_length -= decay_speed * delta
@@ -39,6 +45,8 @@ func _process(delta):
 	else:
 		
 		rotation_speed = lerp(rotation_speed, (0 * delta), 0.01)
+		
+	score += delta * 1000
 		
 
 # Called when the node enters the scene tree for the first time.
