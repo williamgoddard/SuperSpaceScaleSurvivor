@@ -10,11 +10,13 @@ const FRICTION = 0.5
 const DASH_SPEED = 800.0
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 1.0
+const COYOTE_TIME = 0.2
 
-var max_jumps = 1
-var current_jumps = 0
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+var max_jumps = 2
+var current_jumps = 0
 var jump_cut_off = 0.2
+var airtime = 0
 
 var can_double_jump = false
 var is_jumping = false
@@ -73,8 +75,13 @@ func handle_movement(delta):
 	elif Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY * jump_cut_off:
 		velocity.y = JUMP_VELOCITY * jump_cut_off
 
-	# Reset jumps on landing
+	airtime += delta
+
 	if is_on_floor():
+		airtime = 0
+
+	# Reset jumps on landing
+	if is_on_floor() or airtime < COYOTE_TIME:
 		current_jumps = 0
 		is_jumping = false
 
