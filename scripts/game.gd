@@ -5,7 +5,7 @@ extends Node2D
 @onready var player = $Player
 @onready var score_label = $CanvasLayer/ScoreLabel
 
-const MAX_ROTATION_SPEED = 75
+const MAX_ROTATION_SPEED = 60
 
 @export var seesaw_length := 15.0:
 	set(value):
@@ -41,8 +41,10 @@ func _process(delta):
 			var player_position : float = (player.position.x - 3000) / 48
 			var player_position_fraction := player_position / seesaw_length
 			rotation_speed = lerp(rotation_speed, (MAX_ROTATION_SPEED**2) * player_position_fraction * delta, 0.1)
-		else:
+		elif rotation_speed <= MAX_ROTATION_SPEED:
 			rotation_speed = lerp(rotation_speed, (0 * delta), 0.01)
+		else:
+			rotation_speed = lerp(rotation_speed, (0 * delta), 0.1)
 		
 	score_delta_tracker += delta * 10
 	if score_delta_tracker > 1:
@@ -52,7 +54,7 @@ func _process(delta):
 func _ground_pound():
 	var player_position : float = (player.position.x - 3000) / 48
 	var player_position_fraction := player_position / seesaw_length
-	rotation_speed = (sign(player_position_fraction) * MAX_ROTATION_SPEED) + (player_position_fraction * MAX_ROTATION_SPEED * 8)
+	rotation_speed = (sign(player_position_fraction) * MAX_ROTATION_SPEED / 2) + (player_position_fraction * MAX_ROTATION_SPEED * 15)
 	ground_pound_timer = 0.5
 
 func set_sewsaw_lengths():
