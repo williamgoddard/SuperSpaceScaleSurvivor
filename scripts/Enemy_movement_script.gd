@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var kill_node : Area2D
 var died = false
 
+signal enemy_died
+
 func _ready():
 	pass
 
@@ -20,6 +22,7 @@ func _physics_process(delta: float):
 		
 func die():
 	#speed = 0
+	emit_signal("enemy_died")
 	died = true
 	#process_mode = Node.PROCESS_MODE_DISABLED
 	$AnimatedSprite2D.play("die")
