@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0i4ugusd32af"]
+[gd_scene load_steps=9 format=3 uid="uid://0i4ugusd32af"]
 
 [ext_resource type="Texture2D" uid="uid://bdh7sjil13887" path="res://assets/sprites/background.png" id="1_jqsxt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_twg24"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cif0tabgh0qmo" path="res://scene/basic_enemy.tscn" id="4_ycfh4"]
 [ext_resource type="PackedScene" uid="uid://bcct3gmvh4p0l" path="res://scene/fake_player.tscn" id="7_flua2"]
 [ext_resource type="PackedScene" uid="uid://bue4wcy5ke1vr" path="res://scene/player.tscn" id="7_tx7k4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iiash"]
 
 [node name="game" type="Node2D"]
 rotation = 0.000337396
@@ -28,13 +30,6 @@ actual_player = NodePath("../../Player")
 ignore_rotation = false
 rotation_smoothing_enabled = true
 
-[node name="spawn_enemy" type="Button" parent="."]
-offset_left = -598.0
-offset_top = -330.0
-offset_right = -480.0
-offset_bottom = -299.0
-text = "spawn_enemy"
-
 [node name="Enemies_spawn" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_7jqjp")]
 enemy_scene = ExtResource("4_ycfh4")
 spawn_radius = 1000.0
@@ -47,4 +42,27 @@ position = Vector2(3000, 0)
 position = Vector2(3000, -149)
 scale = Vector2(2, 2)
 
-[connection signal="pressed" from="spawn_enemy" to="Enemies_spawn" method="_on_spawn_enemy_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="spawn_enemy" type="Button" parent="CanvasLayer"]
+offset_left = 59.0
+offset_top = 46.0
+offset_right = 177.0
+offset_bottom = 77.0
+text = "spawn_enemy"
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(2136, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_iiash")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(3864, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_iiash")
+
+[connection signal="pressed" from="CanvasLayer/spawn_enemy" to="Enemies_spawn" method="_on_spawn_enemy_pressed"]
