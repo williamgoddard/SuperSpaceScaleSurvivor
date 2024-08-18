@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed : float = 100.0
+@export var speed : float = 40.0
 @export var target_node : Node2D
 
 func _ready():

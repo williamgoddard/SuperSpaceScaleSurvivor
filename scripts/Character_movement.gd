@@ -49,7 +49,7 @@ func _physics_process(delta):
 
 func handle_movement(delta):
 	#Input
-	var input_direction = Input.get_axis("ui_left", "ui_right")
+	var input_direction = Input.get_axis("move_left", "move_right")
 
 	#dashing input
 	if Input.is_action_just_pressed("dash") and dash_cooldown_timer <= 0:
@@ -67,10 +67,10 @@ func handle_movement(delta):
 		velocity.x *= 1.0 - FRICTION * delta
 
 	# Jumping logic
-	if Input.is_action_just_pressed("ui_accept") and current_jumps < max_jumps:
+	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
 		velocity.y = JUMP_VELOCITY
 		current_jumps += 1
-	elif Input.is_action_just_released("ui_accept") and velocity.y < JUMP_VELOCITY * jump_cut_off:
+	elif Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY * jump_cut_off:
 		velocity.y = JUMP_VELOCITY * jump_cut_off
 
 	# Reset jumps on landing
