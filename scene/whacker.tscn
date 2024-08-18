@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8tqtv25k0ypp"]
+
+[ext_resource type="Texture2D" uid="uid://dnqk06qog6jl6" path="res://assets/sprites/whacker.png" id="1_1pxc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bavtc"]
+
+[node name="Whacker" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1pxc3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -10
+scale = Vector2(5.6, 6.4)
+shape = SubResource("RectangleShape2D_bavtc")

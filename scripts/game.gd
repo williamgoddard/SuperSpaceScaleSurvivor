@@ -1,5 +1,7 @@
 extends Node2D
 
+const WHACKER = preload("res://scene/whacker.tscn")
+
 @onready var seesaw = $Seesaw
 @onready var offscreen_seesaw = $OffscreenSeesaw
 @onready var player = $Player
@@ -50,6 +52,12 @@ func _process(delta):
 	if score_delta_tracker > 1:
 		score += floor(score_delta_tracker)
 		score_delta_tracker -= floor(score_delta_tracker)
+		
+	if Input.is_action_just_pressed("place"):
+		var whacker = WHACKER.instantiate()
+		whacker.position.x = player.position.x - 3000
+		whacker.z_index = -10
+		seesaw.add_child(whacker)
 
 func _ground_pound():
 	var player_position : float = (player.position.x - 3000) / 48
