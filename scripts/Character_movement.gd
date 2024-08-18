@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const MAX_SPEED = 500.0
 const JUMP_VELOCITY = -620.0
 const ACCELERATION = 1500.0
@@ -11,7 +10,7 @@ const DASH_SPEED = 1000.0
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 1.0
 const COYOTE_TIME = 0.2
-const GROUND_POUND_SPEED = 1200
+const GROUND_POUND_SPEED = 1200.0
 const GROUND_POUND_RECOVERY_TIME = 0.5
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,12 +35,29 @@ var dash_direction = 0
 signal ground_pound_hit
 
 func _physics_process(delta):
-	#gravity
+	# Gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
-	# Dash logic
+	# Handle recovery
+	if is_recovering:
+		recovery_timer -= delta
+		if recovery_timer <= 0:
+			is_recovering = false
+		# When recovering, don't allow movement
+		velocity.x = 0
+		velocity.y = 0
+	
+	#Handle dash
 	if is_dashing:
+		#cancel dash
+		if Input.is_action_just_pressed("ground_pound") and not is_on_floor():
+			is_dashing = false
+			start_ground_pound()
+		elif Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
+			is_dashing = false
+			start_jump()
+
 		dash_timer -= delta
 		if dash_timer <= 0:
 			is_dashing = false
@@ -50,21 +66,14 @@ func _physics_process(delta):
 		if dash_cooldown_timer > 0:
 			dash_cooldown_timer -= delta
 
-		#normal movement
+		# Normal movement
 		handle_movement(delta)
 	
-	if is_recovering:
-		recovery_timer -= delta
-		if recovery_timer <= 0:
-			is_recovering = false
-		#when recovery, don't allow movement
-		velocity.x = 0
-		velocity.y = 0
-	
-	#ground pound
+	# Ground pound logic
 	if is_ground_pounding:
 		velocity.x = 0  
-		velocity.y = GROUND_POUND_SPEED  #set ground pound speed
+		velocity.y = GROUND_POUND_SPEED  # Set ground pound speed
+
 	move_and_slide()
 	
 	# Check if ground pound hits the ground
@@ -77,23 +86,21 @@ func _physics_process(delta):
 	update_animation()
 
 func handle_movement(delta):
-	#Input
+
 	var input_direction = Input.get_axis("move_left", "move_right")
 	
-	#ground pound
+	#ground pound input
 	if Input.is_action_just_pressed("ground_pound") and not is_on_floor() and not is_ground_pounding:
-		is_ground_pounding = true
-		velocity.x = 0
-		velocity.y = GROUND_POUND_SPEED
+		start_ground_pound()
 		return
 	
-	#dashing input
+	#dash input
 	if Input.is_action_just_pressed("dash") and dash_cooldown_timer <= 0:
 		start_dash(input_direction)
 		if velocity.y > 0:
 			velocity.y = 0
 
-	#Smoother acceleration and deceleration
+	#smoother acceleration and deceleration
 	if input_direction != 0:
 		velocity.x = move_toward(velocity.x, input_direction * MAX_SPEED, ACCELERATION * delta)
 	else:
@@ -118,25 +125,29 @@ func handle_movement(delta):
 	elif current_jumps == 0:
 		current_jumps = 1
 
-	# Jumping logic
+	#jump logic
 	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
-		velocity.y = JUMP_VELOCITY
-		current_jumps += 1
-		airtime = COYOTE_TIME
-	elif Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY * jump_cut_off:
-		velocity.y = JUMP_VELOCITY * jump_cut_off
+		start_jump()
 
-	# Determine facing direction
+	#facing direction
 	if input_direction != 0:
 		facing_right = input_direction > 0
 	
-	
-
 func start_dash(direction):
 	is_dashing = true
 	dash_timer = DASH_DURATION
 	dash_direction = direction if direction != 0 else (1 if facing_right else -1)
 	velocity.x = dash_direction * DASH_SPEED
+
+func start_ground_pound():
+	is_ground_pounding = true
+	velocity.x = 0
+	velocity.y = GROUND_POUND_SPEED
+
+func start_jump():
+	velocity.y = JUMP_VELOCITY
+	current_jumps += 1
+	airtime = COYOTE_TIME
 
 func update_animation():
 	if is_ground_pounding:
