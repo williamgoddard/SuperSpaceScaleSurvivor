@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxy6acev7f1gj"]
+[gd_scene load_steps=23 format=3 uid="uid://cif0tabgh0qmo"]
 
 [ext_resource type="Script" path="res://scripts/Enemy_movement_script.gd" id="1_0n3b5"]
 [ext_resource type="Texture2D" uid="uid://d357ey4g5kguv" path="res://assets/sprites/enemi.png" id="2_b0l7h"]
@@ -146,7 +146,7 @@ animations = [{
 }]
 
 [node name="Basic_enemy" type="CharacterBody2D"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 motion_mode = 1
 script = ExtResource("1_0n3b5")
 
