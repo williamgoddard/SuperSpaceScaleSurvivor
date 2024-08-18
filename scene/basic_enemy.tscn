@@ -1,10 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxy6acev7f1gj"]
+[gd_scene load_steps=24 format=3 uid="uid://cxy6acev7f1gj"]
 
 [ext_resource type="Script" path="res://scripts/Enemy_movement_script.gd" id="1_0n3b5"]
 [ext_resource type="Texture2D" uid="uid://d357ey4g5kguv" path="res://assets/sprites/enemi.png" id="2_b0l7h"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vc2tf"]
-radius = 18.527
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bymk2"]
 atlas = ExtResource("2_b0l7h")
@@ -145,14 +142,29 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fgoov"]
+radius = 20.0062
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vc2tf"]
+radius = 18.1108
+
 [node name="Basic_enemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 motion_mode = 1
 script = ExtResource("1_0n3b5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_vc2tf")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d0eox")
 animation = &"move"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fgoov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vc2tf")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

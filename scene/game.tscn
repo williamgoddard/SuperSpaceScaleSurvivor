@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0i4ugusd32af"]
+[gd_scene load_steps=10 format=3 uid="uid://0i4ugusd32af"]
 
 [ext_resource type="Texture2D" uid="uid://bdh7sjil13887" path="res://assets/sprites/background.png" id="1_jqsxt"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_twg24"]
@@ -8,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bcct3gmvh4p0l" path="res://scene/fake_player.tscn" id="7_flua2"]
 [ext_resource type="PackedScene" uid="uid://dwk47itt7ud2v" path="res://scene/player.tscn" id="7_tx7k4"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iiash"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7g0w"]
+size = Vector2(775.001, 6.16846)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jf326"]
+size = Vector2(864.997, 21.1267)
 
 [node name="game" type="Node2D"]
 rotation = 0.000337396
@@ -30,10 +34,11 @@ actual_player = NodePath("../../Player")
 ignore_rotation = false
 rotation_smoothing_enabled = true
 
-[node name="Enemies_spawn" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_7jqjp")]
+[node name="Enemies_spawn" parent="." node_paths=PackedStringArray("target_node", "kill_node") instance=ExtResource("3_7jqjp")]
 enemy_scene = ExtResource("4_ycfh4")
 spawn_radius = 1000.0
 target_node = NodePath("../Seesaw")
+kill_node = NodePath("../Seesaw/Fake_player")
 
 [node name="OffscreenSeesaw" parent="." instance=ExtResource("2_fnwyl")]
 position = Vector2(3000, 0)
@@ -55,14 +60,16 @@ text = "spawn_enemy"
 position = Vector2(2136, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(6.91626, -106.222)
 rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_iiash")
+shape = SubResource("RectangleShape2D_m7g0w")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(3864, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(0.562012, -53.8059)
 rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_iiash")
+shape = SubResource("RectangleShape2D_jf326")
 
 [connection signal="pressed" from="CanvasLayer/spawn_enemy" to="Enemies_spawn" method="_on_spawn_enemy_pressed"]
