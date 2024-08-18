@@ -56,6 +56,8 @@ func handle_movement(delta):
 	#dashing input
 	if Input.is_action_just_pressed("dash") and dash_cooldown_timer <= 0:
 		start_dash(input_direction)
+		if velocity.y > 0:
+			velocity.y = 0
 
 	#Smoother acceleration and deceleration
 	if input_direction != 0:
