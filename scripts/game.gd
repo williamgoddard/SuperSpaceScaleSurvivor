@@ -32,6 +32,8 @@ const MAX_ROTATION_SPEED = 75
 	set(value):
 		score_label.text = str(score)
 		score = value
+		
+var score_delta_tracker := 0.0
 
 func _process(delta):
 	seesaw_length -= decay_speed * delta
@@ -46,8 +48,10 @@ func _process(delta):
 		
 		rotation_speed = lerp(rotation_speed, (0 * delta), 0.01)
 		
-	score += delta * 1000
-		
+	score_delta_tracker += delta * 10
+	if score_delta_tracker > 1:
+		score += floor(score_delta_tracker)
+		score_delta_tracker -= floor(score_delta_tracker)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
