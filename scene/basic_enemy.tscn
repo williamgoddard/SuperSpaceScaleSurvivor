@@ -146,6 +146,7 @@ animations = [{
 }]
 
 [node name="Basic_enemy" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 motion_mode = 1
 script = ExtResource("1_0n3b5")
 
@@ -154,6 +155,4 @@ shape = SubResource("CircleShape2D_vc2tf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d0eox")
-animation = &"die"
-frame = 12
-frame_progress = 1.0
+animation = &"move"
