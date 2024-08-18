@@ -11,6 +11,7 @@ const DASH_SPEED = 1000.0
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 1.0
 const COYOTE_TIME = 0.2
+const GROUND_POUND_SPEED = 1200
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 var max_jumps = 3
@@ -22,10 +23,13 @@ var can_double_jump = false
 var is_jumping = false
 var facing_right = true
 
+var is_ground_pounding = false
 var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown_timer = 0.0
 var dash_direction = 0
+
+signal ground_pound_hit
 
 func _physics_process(delta):
 	#gravity
@@ -44,15 +48,31 @@ func _physics_process(delta):
 
 		#normal movement
 		handle_movement(delta)
-
+		
+	#ground pound
+	if is_ground_pounding:
+		velocity.x = 0  
+		velocity.y = GROUND_POUND_SPEED  #set ground pound speed
 	move_and_slide()
+	
+	# Check if ground pound hits the ground
+	if is_ground_pounding and is_on_floor():
+		is_ground_pounding = false
+		emit_signal("ground_pound_hit")
 
 	update_animation()
 
 func handle_movement(delta):
 	#Input
 	var input_direction = Input.get_axis("move_left", "move_right")
-
+	
+	#ground pound
+	if Input.is_action_just_pressed("ground_pound") and not is_on_floor() and not is_ground_pounding:
+		is_ground_pounding = true
+		velocity.x = 0
+		velocity.y = GROUND_POUND_SPEED
+		return
+	
 	#dashing input
 	if Input.is_action_just_pressed("dash") and dash_cooldown_timer <= 0:
 		start_dash(input_direction)
@@ -95,6 +115,8 @@ func handle_movement(delta):
 	# Determine facing direction
 	if input_direction != 0:
 		facing_right = input_direction > 0
+	
+	
 
 func start_dash(direction):
 	is_dashing = true
@@ -103,7 +125,14 @@ func start_dash(direction):
 	velocity.x = dash_direction * DASH_SPEED
 
 func update_animation():
-	if is_on_floor():
+	if is_ground_pounding:
+		$AnimatedSprite2D.play("ground_pound")
+	elif is_dashing:
+		if dash_direction > 0:
+			$AnimatedSprite2D.play("dash_right")
+		else:
+			$AnimatedSprite2D.play("dash_left")
+	elif is_on_floor():
 		if velocity.x == 0:
 			$AnimatedSprite2D.play("idle")
 		else:
@@ -126,3 +155,4 @@ func update_animation():
 				$AnimatedSprite2D.play("fall_right")
 			else:
 				$AnimatedSprite2D.play("fall_left")
+

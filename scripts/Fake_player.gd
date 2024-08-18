@@ -19,33 +19,37 @@ func update_animation():
 	var velocity = actual_player_node.velocity  
 	var is_on_floor = actual_player_node.is_on_floor()  
 	var facing_right = actual_player_node.facing_right
+	var is_ground_pounding = actual_player_node.is_ground_pounding
+	var is_dashing = actual_player_node.is_dashing
+	var dash_direction = actual_player_node.dash_direction
 	
-	if is_on_floor:
-		if velocity.x == 0:
-			
-			# Idle animation
-			if facing_right:
-				$AnimatedSprite2D.play("idle")
-			else:
-				$AnimatedSprite2D.play("idle")
+	if is_ground_pounding:
+		$AnimatedSprite2D.play("ground_pound")
+	elif is_dashing:
+		if dash_direction > 0:
+			$AnimatedSprite2D.play("dash_right")
 		else:
-			#run animation
+			$AnimatedSprite2D.play("dash_left")
+	elif is_on_floor:
+		if velocity.x == 0:
+			$AnimatedSprite2D.play("idle")
+		else:
 			if facing_right:
 				$AnimatedSprite2D.play("run_right")
 			else:
 				$AnimatedSprite2D.play("run_left")
 	else:
-		if velocity.x == 0 and velocity.y > 0:
-			$AnimatedSprite2D.play("jump_idle")
-		elif velocity.x > 0  and velocity.y > 0:
-			if facing_right:
+		if velocity.y < 0:
+			if velocity.x == 0:
+				$AnimatedSprite2D.play("jump_idle")
+			elif facing_right:
 				$AnimatedSprite2D.play("jump_right")
 			else:
 				$AnimatedSprite2D.play("jump_left")
-		elif velocity.x == 0:
-			$AnimatedSprite2D.play("fall_idle")
 		else:
-			if facing_right:
+			if velocity.x == 0:
+				$AnimatedSprite2D.play("fall_idle")
+			elif facing_right:
 				$AnimatedSprite2D.play("fall_right")
 			else:
 				$AnimatedSprite2D.play("fall_left")

@@ -1,10 +1,50 @@
-[gd_scene load_steps=38 format=3 uid="uid://dwk47itt7ud2v"]
+[gd_scene load_steps=51 format=3 uid="uid://dwk47itt7ud2v"]
 
 [ext_resource type="Script" path="res://scripts/Character_movement.gd" id="1_f3quu"]
-[ext_resource type="Texture2D" uid="uid://6jclwjboevpg" path="res://assets/sprites/Character_anims.png" id="2_4j6fo"]
+[ext_resource type="Texture2D" uid="uid://rlmndpyg5k5" path="res://assets/sprites/Character_anims.png" id="2_4j6fo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pqk2"]
 radius = 6.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cajfm"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(240, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8pvi"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(192, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8l0g"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(144, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71lge"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(96, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xemvd"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jrk8"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e36bf"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(48, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85kca"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeqvy"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(144, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd3yw"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(192, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkeuk"]
 atlas = ExtResource("2_4j6fo")
@@ -17,6 +57,18 @@ region = Rect2(48, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8br61"]
 atlas = ExtResource("2_4j6fo")
 region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6d6v"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(0, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wai"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(48, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dawyi"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(96, 384, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8wpt"]
 atlas = ExtResource("2_4j6fo")
@@ -142,6 +194,46 @@ region = Rect2(240, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cajfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8pvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8l0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71lge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xemvd")
+}],
+"loop": false,
+"name": &"dash_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jrk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e36bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85kca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeqvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd3yw")
+}],
+"loop": false,
+"name": &"dash_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bkeuk")
 }],
 "loop": true,
@@ -162,6 +254,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6d6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dawyi")
+}],
+"loop": true,
+"name": &"ground_pound",
 "speed": 5.0
 }, {
 "frames": [{
@@ -294,4 +400,4 @@ shape = SubResource("CapsuleShape2D_1pqk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pl3ap")
-animation = &"fall_idle"
+animation = &"ground_pound"
