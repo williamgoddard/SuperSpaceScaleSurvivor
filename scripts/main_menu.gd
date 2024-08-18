@@ -51,3 +51,5 @@ func _process(delta):
 		match selected_option:
 			0:
 				get_tree().change_scene_to_packed(GAME)
+			2:
+				get_tree().quit()
