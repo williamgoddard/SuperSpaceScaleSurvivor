@@ -77,6 +77,10 @@ func handle_movement(delta):
 	if is_on_floor() or airtime < COYOTE_TIME:
 		current_jumps = 0
 		is_jumping = false
+		
+	# Remove first jump if not used in time
+	elif current_jumps == 0:
+		current_jumps = 1
 
 	# Jumping logic
 	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
