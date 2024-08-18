@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 const MAX_SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 const ACCELERATION = 1000.0
 const DECELERATION = 600.0
 const AIR_CONTROL = 0.3
 const FRICTION = 0.5
+var max_jumps = 1
+var current_jumps
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+var jump_cut_off = 0.2
 
 var can_double_jump = false
 var is_jumping = false
@@ -31,25 +34,17 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, input_direction * MAX_SPEED, AIR_CONTROL * delta)
 		velocity.x *= 1.0 - FRICTION * delta
 
-	# Jumping with variable height
-	if Input.is_action_just_pressed("ui_accept"):
-		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
-			is_jumping = true
-		elif can_double_jump:
-			velocity.y = JUMP_VELOCITY
-			can_double_jump = false
-			is_jumping = true
+		
+	if Input.is_action_just_pressed("ui_accept") and current_jumps < max_jumps:
+		velocity.y = JUMP_VELOCITY
+		current_jumps += 1
+	elif Input.is_action_just_released("ui_accept") and velocity.y < JUMP_VELOCITY * jump_cut_off:
+		velocity.y = JUMP_VELOCITY * jump_cut_off
 
-	# Allow holding jump to jump higher
-	if is_jumping and not Input.is_action_pressed("ui_accept"):
-		if velocity.y < JUMP_VELOCITY / 2:
-			velocity.y = JUMP_VELOCITY / 2
-		is_jumping = false
 
 	# Reset double jump flag on landing
 	if is_on_floor():
-		can_double_jump = true
+		current_jumps = 0
 
 	# Check if on ground to reset jumping state
 	if is_on_floor():

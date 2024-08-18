@@ -11,6 +11,7 @@ func spawn_enemy():
 	enemy = enemy_scene.instantiate()
 	enemy.position = random_point_on_circle(spawn_radius)
 	enemy.set_name('Enemy '+ str(get_child_count()+1))
+	enemy.target_node = target_node
 	add_child(enemy)
 	enemy.look_at(target_node.position)
 
