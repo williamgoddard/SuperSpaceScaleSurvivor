@@ -1,28 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://spe5oqlb2bqt"]
+[gd_scene load_steps=6 format=3 uid="uid://bej7640e6kw1g"]
 
-[ext_resource type="Script" path="res://scripts/seesaw_arm.gd" id="1_puo4g"]
+[ext_resource type="Script" path="res://scripts/seesaw.gd" id="1_jbkeq"]
+[ext_resource type="PackedScene" uid="uid://spe5oqlb2bqt" path="res://scene/seesaw_arm.tscn" id="1_u1m4e"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1dv2d"]
 load_path = "res://.godot/imported/seesaw.bmp-08c442acdb7b828a7e8607e58f65a745.ctex"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv83q"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3mgx"]
 texture = SubResource("CompressedTexture2D_1dv2d")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -12, 24, -12, 24, 12, -20, 12)
-0:0/0/physics_layer_0/polygon_0/one_way_margin = 180.0
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -12, 24, -12, 24, 12, -24, 12)
-1:0/0/physics_layer_0/polygon_0/one_way_margin = 180.0
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -12, 20, -12, 20, 12, -24, 12)
-2:0/0/physics_layer_0/polygon_0/one_way_margin = 180.0
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
@@ -44,18 +39,13 @@ texture_region_size = Vector2i(48, 48)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -12, 24, -12, 24, 12, -24, 12)
-0:1/0/physics_layer_0/polygon_0/one_way_margin = 180.0
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -12, 24, -12, 24, 12, -24, 12)
-1:1/0/physics_layer_0/polygon_0/one_way_margin = 180.0
 2:1/0 = 0
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -12, 24, -12, 24, 12, -24, 12)
-2:1/0/physics_layer_0/polygon_0/one_way_margin = 180.0
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
@@ -183,14 +173,23 @@ texture_region_size = Vector2i(48, 48)
 8:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:5/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_rtfvg"]
+[sub_resource type="TileSet" id="TileSet_ac1mc"]
 tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_hv83q")
+sources/0 = SubResource("TileSetAtlasSource_w3mgx")
 
-[node name="SeesawArm" type="Node2D"]
-script = ExtResource("1_puo4g")
+[node name="Seesaw" type="Node2D"]
+script = ExtResource("1_jbkeq")
+
+[node name="SeesawArmRight" parent="." instance=ExtResource("1_u1m4e")]
+position = Vector2(-24, -24)
+
+[node name="SeesawArmLeft" parent="." instance=ExtResource("1_u1m4e")]
+position = Vector2(-24, -24)
+scale = Vector2(-1, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_rtfvg")
+position = Vector2(-24, -24)
+tile_set = SubResource("TileSet_ac1mc")
 format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 1)

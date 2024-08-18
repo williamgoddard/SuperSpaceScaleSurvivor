@@ -12,7 +12,7 @@ extends Node2D
 			length = value
 var previous_length := 0
 
-func _physics_process(delta):
+func _process(delta):
 	if length > previous_length:
 		for i in range(previous_length, length):
 			tile_map.set_cell(0, Vector2(i, 0), 0, Vector2(1,0))

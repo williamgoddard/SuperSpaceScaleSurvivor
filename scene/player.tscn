@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/Character_movement.gd" id="1_f3quu"]
 [ext_resource type="Texture2D" uid="uid://6jclwjboevpg" path="res://assets/sprites/Character_anims.png" id="2_4j6fo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl53h"]
-size = Vector2(23, 36)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pqk2"]
+radius = 6.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkeuk"]
 atlas = ExtResource("2_4j6fo")
@@ -289,8 +289,8 @@ animations = [{
 script = ExtResource("1_f3quu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 7)
-shape = SubResource("RectangleShape2D_tl53h")
+position = Vector2(0.5, 8.5)
+shape = SubResource("CapsuleShape2D_1pqk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pl3ap")
