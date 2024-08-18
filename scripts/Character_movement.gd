@@ -13,7 +13,7 @@ const DASH_COOLDOWN = 1.0
 const COYOTE_TIME = 0.2
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
-var max_jumps = 2
+var max_jumps = 3
 var current_jumps = 0
 var jump_cut_off = 0.2
 var airtime = 0
@@ -68,13 +68,6 @@ func handle_movement(delta):
 		velocity.x = move_toward(velocity.x, input_direction * MAX_SPEED, AIR_CONTROL * delta)
 		velocity.x *= 1.0 - FRICTION * delta
 
-	# Jumping logic
-	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
-		velocity.y = JUMP_VELOCITY
-		current_jumps += 1
-	elif Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY * jump_cut_off:
-		velocity.y = JUMP_VELOCITY * jump_cut_off
-
 	airtime += delta
 
 	if is_on_floor():
@@ -84,6 +77,14 @@ func handle_movement(delta):
 	if is_on_floor() or airtime < COYOTE_TIME:
 		current_jumps = 0
 		is_jumping = false
+
+	# Jumping logic
+	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
+		velocity.y = JUMP_VELOCITY
+		current_jumps += 1
+		airtime = COYOTE_TIME
+	elif Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY * jump_cut_off:
+		velocity.y = JUMP_VELOCITY * jump_cut_off
 
 	# Determine facing direction
 	if input_direction != 0:
