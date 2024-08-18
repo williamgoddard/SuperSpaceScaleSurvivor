@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dwk47itt7ud2v"]
+[gd_scene load_steps=53 format=3 uid="uid://dwk47itt7ud2v"]
 
 [ext_resource type="Script" path="res://scripts/Character_movement.gd" id="1_f3quu"]
 [ext_resource type="Texture2D" uid="uid://rlmndpyg5k5" path="res://assets/sprites/Character_anims.png" id="2_4j6fo"]
@@ -69,6 +69,14 @@ region = Rect2(48, 384, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dawyi"]
 atlas = ExtResource("2_4j6fo")
 region = Rect2(96, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lps6j"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(144, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s048y"]
+atlas = ExtResource("2_4j6fo")
+region = Rect2(192, 384, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8wpt"]
 atlas = ExtResource("2_4j6fo")
@@ -272,6 +280,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lps6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s048y")
+}],
+"loop": false,
+"name": &"ground_pound_recovery",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t8wpt")
 }, {
 "duration": 1.0,
@@ -400,4 +419,4 @@ shape = SubResource("CapsuleShape2D_1pqk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pl3ap")
-animation = &"ground_pound"
+animation = &"ground_pound_recovery"

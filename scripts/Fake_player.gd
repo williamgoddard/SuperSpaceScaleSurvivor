@@ -22,9 +22,12 @@ func update_animation():
 	var is_ground_pounding = actual_player_node.is_ground_pounding
 	var is_dashing = actual_player_node.is_dashing
 	var dash_direction = actual_player_node.dash_direction
+	var is_recovering = actual_player_node.is_recovering
 	
 	if is_ground_pounding:
 		$AnimatedSprite2D.play("ground_pound")
+	elif is_recovering:
+		$AnimatedSprite2D.play("ground_pound_recovery")
 	elif is_dashing:
 		if dash_direction > 0:
 			$AnimatedSprite2D.play("dash_right")

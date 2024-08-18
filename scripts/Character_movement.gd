@@ -12,6 +12,7 @@ const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 1.0
 const COYOTE_TIME = 0.2
 const GROUND_POUND_SPEED = 1200
+const GROUND_POUND_RECOVERY_TIME = 0.5
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 var max_jumps = 3
@@ -24,6 +25,9 @@ var is_jumping = false
 var facing_right = true
 
 var is_ground_pounding = false
+var is_recovering = false
+var recovery_timer = 0.0
+
 var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown_timer = 0.0
@@ -48,7 +52,15 @@ func _physics_process(delta):
 
 		#normal movement
 		handle_movement(delta)
-		
+	
+	if is_recovering:
+		recovery_timer -= delta
+		if recovery_timer <= 0:
+			is_recovering = false
+		#when recovery, don't allow movement
+		velocity.x = 0
+		velocity.y = 0
+	
 	#ground pound
 	if is_ground_pounding:
 		velocity.x = 0  
@@ -58,6 +70,8 @@ func _physics_process(delta):
 	# Check if ground pound hits the ground
 	if is_ground_pounding and is_on_floor():
 		is_ground_pounding = false
+		is_recovering = true
+		recovery_timer = GROUND_POUND_RECOVERY_TIME
 		emit_signal("ground_pound_hit")
 
 	update_animation()
@@ -127,6 +141,8 @@ func start_dash(direction):
 func update_animation():
 	if is_ground_pounding:
 		$AnimatedSprite2D.play("ground_pound")
+	elif is_recovering:
+		$AnimatedSprite2D.play("ground_pound_recovery")
 	elif is_dashing:
 		if dash_direction > 0:
 			$AnimatedSprite2D.play("dash_right")
@@ -155,4 +171,3 @@ func update_animation():
 				$AnimatedSprite2D.play("fall_right")
 			else:
 				$AnimatedSprite2D.play("fall_left")
-

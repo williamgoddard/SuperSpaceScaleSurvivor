@@ -1,9 +1,17 @@
-[gd_scene load_steps=45 format=3 uid="uid://bcct3gmvh4p0l"]
+[gd_scene load_steps=53 format=3 uid="uid://bcct3gmvh4p0l"]
 
 [ext_resource type="Script" path="res://scripts/Fake_player.gd" id="1_5yjkb"]
 [ext_resource type="Texture2D" uid="uid://rlmndpyg5k5" path="res://assets/sprites/Character_anims.png" id="2_bnltu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr8rk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cajfm"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(240, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8pvi"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(192, 336, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8l0g"]
 atlas = ExtResource("2_bnltu")
@@ -13,6 +21,18 @@ region = Rect2(144, 336, 48, 48)
 atlas = ExtResource("2_bnltu")
 region = Rect2(96, 336, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xemvd"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jrk8"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(0, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e36bf"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(48, 288, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_85kca"]
 atlas = ExtResource("2_bnltu")
 region = Rect2(96, 288, 48, 48)
@@ -20,6 +40,10 @@ region = Rect2(96, 288, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xeqvy"]
 atlas = ExtResource("2_bnltu")
 region = Rect2(144, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd3yw"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(192, 288, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkeuk"]
 atlas = ExtResource("2_bnltu")
@@ -44,6 +68,14 @@ region = Rect2(48, 384, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dawyi"]
 atlas = ExtResource("2_bnltu")
 region = Rect2(96, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lps6j"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(144, 384, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s048y"]
+atlas = ExtResource("2_bnltu")
+region = Rect2(192, 384, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8wpt"]
 atlas = ExtResource("2_bnltu")
@@ -165,29 +197,47 @@ region = Rect2(192, 0, 48, 48)
 atlas = ExtResource("2_bnltu")
 region = Rect2(240, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dc7bl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_y80js"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cajfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8pvi")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g8l0g")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_71lge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xemvd")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_left",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jrk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e36bf")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_85kca")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xeqvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd3yw")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_right",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -226,6 +276,17 @@ animations = [{
 "loop": true,
 "name": &"ground_pound",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lps6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s048y")
+}],
+"loop": false,
+"name": &"ground_pound_recovery",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -357,5 +418,7 @@ script = ExtResource("1_5yjkb")
 shape = SubResource("CircleShape2D_yr8rk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dc7bl")
-animation = &"dash_left"
+sprite_frames = SubResource("SpriteFrames_y80js")
+animation = &"ground_pound_recovery"
+frame = 1
+frame_progress = 1.0
