@@ -9,7 +9,7 @@ func _ready():
 func _physics_process(delta: float):
 	if target_node:
 		var direction = (target_node.position - position).normalized()
-		
+		look_at(target_node.position)
 		velocity = direction * speed
 		#print(str(velocity) + "" + str(target_node.position)+""+str(get_parent().position))
 		move_and_slide()
