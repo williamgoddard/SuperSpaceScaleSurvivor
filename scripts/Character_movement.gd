@@ -72,7 +72,6 @@ func handle_movement(delta):
 	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
 		velocity.y = JUMP_VELOCITY
 		current_jumps += 1
-		airtime = COYOTE_TIME
 	elif Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY * jump_cut_off:
 		velocity.y = JUMP_VELOCITY * jump_cut_off
 
