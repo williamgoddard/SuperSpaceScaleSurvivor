@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-const MAX_SPEED = 300.0
-const JUMP_VELOCITY = -600.0
-const ACCELERATION = 1000.0
-const DECELERATION = 600.0
-const AIR_CONTROL = 0.3
-const FRICTION = 0.5
-const DASH_SPEED = 800.0
+const MAX_SPEED = 500.0
+const JUMP_VELOCITY = -620.0
+const ACCELERATION = 1500.0
+const DECELERATION = 1500.0
+const AIR_CONTROL = 0.8
+const FRICTION = 1
+const DASH_SPEED = 1000.0
 const DASH_DURATION = 0.2
 const DASH_COOLDOWN = 1.0
 const COYOTE_TIME = 0.2

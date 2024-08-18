@@ -6,12 +6,12 @@ extends Node2D
 
 const MAX_ROTATION_SPEED = 75
 
-@export var seesaw_length := 10.0:
+@export var seesaw_length := 15.0:
 	set(value):
 		if value < 0.5:
 			value = 0.5
-		elif value > 12:
-			value = 12
+		elif value > 15:
+			value = 15.0
 		else:
 			seesaw_length = value
 		set_sewsaw_lengths()
