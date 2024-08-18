@@ -14,6 +14,8 @@ func _physics_process(delta: float):
 		#print(str(velocity) + "" + str(target_node.position)+""+str(get_parent().position))
 		move_and_slide()
 		$AnimatedSprite2D.play("move")
+	else:
+		print("Unique is bad")
 func die():
 	# Remove the parent of this node
 	$AnimatedSprite2D.play("die")

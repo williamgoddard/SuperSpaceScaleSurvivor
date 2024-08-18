@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cif0tabgh0qmo"]
+[gd_scene load_steps=23 format=3 uid="uid://cxy6acev7f1gj"]
 
 [ext_resource type="Script" path="res://scripts/Enemy_movement_script.gd" id="1_0n3b5"]
 [ext_resource type="Texture2D" uid="uid://d357ey4g5kguv" path="res://assets/sprites/enemi.png" id="2_b0l7h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vc2tf"]
-radius = 18.0
+radius = 18.527
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bymk2"]
 atlas = ExtResource("2_b0l7h")
