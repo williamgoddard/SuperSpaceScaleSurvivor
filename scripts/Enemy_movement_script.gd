@@ -34,7 +34,6 @@ func _on_area_2d_body_entered(body):
 		if (flipped and game.rotation_speed > 0) or (not flipped and game.rotation_speed < 0):
 			body.hit_enemy = true
 			die()
-	print(body)
 	pass # Replace with function body.
 
 

@@ -12,7 +12,6 @@ var large_circle_center: Vector2
 
 func _ready():
 	large_circle_center = centre_node.position
-	print("trest")
 	var angle = randf() * TAU
 	
 	var spawn_position = random_point_on_circle(large_circle_radius) + centre_node.position
@@ -30,7 +29,6 @@ func _ready():
 func _process(delta):
 	# Move the star in the calculated direction
 	position += direction * speed * delta
-	print(position)
 	# Check if the star has exited the larger circle and delete it if it has
 	if position.distance_to(large_circle_center) > large_circle_radius:
 		queue_free()

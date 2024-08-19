@@ -23,7 +23,6 @@ var game_state := GameState.MENU:
 		
 			Wwise.set_state("gamestate","menu")
 		elif (game_state == GameState.INGAME):
-			print_debug("GameState changed to battle!")
 			Wwise.set_state("gamestate","battle")
 		elif (game_state == GameState.GAME_OVER):
 			Wwise.set_state("gamestate", "gameover")
