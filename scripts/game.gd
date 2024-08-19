@@ -22,7 +22,7 @@ const MAX_ROTATION_SPEED = 60
 		else:
 			seesaw_length = value
 		#set_rtpc_value(name: String, value: float, game_object: Object)
-		Wwise.set_rtpc_value("seesaw_length",15,ak_event_2d)
+		Wwise.set_rtpc_value("seesawLength",seesaw_length,ak_event_2d)
 
 		set_sewsaw_lengths()
 
