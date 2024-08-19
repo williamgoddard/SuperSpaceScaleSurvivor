@@ -111,9 +111,10 @@ shape = SubResource("RectangleShape2D_jf326")
 [node name="AkListener2D" type="AkListener2D" parent="Wwise"]
 rotation = -0.000337396
 
-[node name="Power_UP_Spawner" parent="." node_paths=PackedStringArray("centre_node") instance=ExtResource("9_i3p2i")]
+[node name="Power_UP_Spawner" parent="." node_paths=PackedStringArray("centre_node", "star_collector_node") instance=ExtResource("9_i3p2i")]
 power_up_scene = ExtResource("10_3mxam")
 centre_node = NodePath("../Seesaw")
+star_collector_node = NodePath("../Seesaw/Fake_player")
 
 [connection signal="enemy_died" from="Enemies_spawn" to="." method="_enemy_died"]
 [connection signal="ground_pound_hit" from="Player" to="." method="_ground_pound"]
