@@ -168,7 +168,6 @@ func _on_player_dash_replenish_signal():
 
 func _on_area_2d_body_entered(body):
 	if "Enemy" in body.name:
-		print("fuck")
 		body.die()
 		seesaw_damaged(1.0)
 	pass # Replace with function body.
@@ -180,6 +179,5 @@ func seesaw_damaged(damage: float):
 func check_if_destroyed():
 	print(seesaw_length)
 	if seesaw_length <= 0.5:
-		print("unique bad")
-		offscreen_seesaw.shape = null
-		seesaw.visible = false
+		seesaw.destroy()
+		offscreen_seesaw.destroy()
