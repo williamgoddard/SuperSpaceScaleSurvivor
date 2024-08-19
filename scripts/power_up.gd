@@ -3,8 +3,10 @@ extends Node2D
 @export var centre_node : Node2D
 @export var speed: float = 200.0
 @export var large_circle_radius: float = 1000.0
-@export var small_circle_radius: float = 200.0
+@export var small_circle_radius: float = 500.0
+@export var star_collector_node: Node2D
 
+signal star_collected
 var direction: Vector2
 var large_circle_center: Vector2
 
@@ -38,3 +40,11 @@ func random_point_on_circle(radius: float) -> Vector2:
 	var x = radius * cos(angle)
 	var y = radius * sin(angle)
 	return Vector2(x, y)
+
+func die():
+	emit_signal("star_collected")
+	queue_free()
+
+func _on_area_2d_body_entered(body):
+	if body == star_collector_node:
+		die()

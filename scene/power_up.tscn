@@ -1,7 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqqws3pflcyae"]
+[gd_scene load_steps=9 format=3 uid="uid://cqqws3pflcyae"]
 
 [ext_resource type="Script" path="res://scripts/power_up.gd" id="1_fe5td"]
 [ext_resource type="Texture2D" uid="uid://bev4veuolohb3" path="res://assets/sprites/power_up.png" id="1_yp2vi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4opg7"]
+radius = 23.0217
+
+[sub_resource type="Gradient" id="Gradient_jbr7h"]
+offsets = PackedFloat32Array(0, 0.482759, 1)
+colors = PackedColorArray(1, 0.901961, 0.172549, 1, 1, 0.663087, 0.0593736, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_33tmv"]
+gradient = SubResource("Gradient_jbr7h")
+
+[sub_resource type="Curve" id="Curve_16jgb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vb4vk"]
+curve = SubResource("Curve_16jgb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fjwdk"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_vb4vk")
+color_ramp = SubResource("GradientTexture1D_33tmv")
 
 [node name="Power_UP" type="Node2D"]
 script = ExtResource("1_fe5td")
@@ -13,3 +38,16 @@ texture = ExtResource("1_yp2vi")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-22, 21)
+shape = SubResource("CircleShape2D_4opg7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-22, 21)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_fjwdk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
