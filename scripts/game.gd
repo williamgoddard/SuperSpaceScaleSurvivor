@@ -173,8 +173,8 @@ func _on_area_2d_body_entered(body):
 	pass # Replace with function body.
 
 func seesaw_damaged(damage: float):
-	seesaw_length -= damage
 	check_if_destroyed()
+	seesaw_length -= damage
 
 func check_if_destroyed():
 	print(seesaw_length)
