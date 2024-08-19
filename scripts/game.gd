@@ -18,8 +18,7 @@ const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 @onready var fake_player = $Seesaw/Fake_player
 @onready var canvas_layer = $CanvasLayer
 
-
-
+var whackers : Array[Whacker] = []
 
 const MAX_ROTATION_SPEED = 60
 
@@ -32,10 +31,14 @@ const MAX_ROTATION_SPEED = 60
 		else:
 			seesaw_length = value
 		seesaw_length_signal.emit(seesaw_length)
-		#set_rtpc_value(name: String, value: float, game_object: Object)
-
-
 		set_sewsaw_lengths()
+		var whackers_to_remove : Array[Whacker] = []
+		for whacker in whackers:
+			if abs(whacker.position.x) > (seesaw_length * 48) + 80:
+				whackers_to_remove.append(whacker)
+		for whacker in whackers_to_remove:
+			whackers.erase(whacker)
+			whacker.destroy()
 
 @export var decay_speed = 0.1
 
@@ -85,6 +88,14 @@ func _process(delta):
 			var whacker = WHACKER.instantiate()
 			whacker.position.x = player.position.x - 3000
 			whacker.z_index = -10
+			var whackers_to_remove : Array[Whacker] = []
+			for other_whacker in whackers:
+				if abs(whacker.position.x - other_whacker.position.x) < 104:
+					whackers_to_remove.append(other_whacker)
+			for other_whacker in whackers_to_remove:
+				whackers.erase(other_whacker)
+				other_whacker.destroy()
+			whackers.push_back(whacker)
 			seesaw.add_child(whacker)
 
 func _ground_pound():
