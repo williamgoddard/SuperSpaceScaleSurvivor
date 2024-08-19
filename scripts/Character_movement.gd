@@ -106,6 +106,12 @@ func handle_movement(delta):
 		start_dash(input_direction)
 		if velocity.y > 0:
 			velocity.y = 0
+<<<<<<< Updated upstream
+=======
+			
+	if Input.is_action_just_released("jump") and is_jumping:
+		stop_jump(delta)
+>>>>>>> Stashed changes
 
 	#smoother acceleration and deceleration
 	if input_direction != 0:
@@ -157,6 +163,14 @@ func start_jump():
 	velocity.y = JUMP_VELOCITY
 	current_jumps += 1
 	airtime = COYOTE_TIME
+<<<<<<< Updated upstream
+=======
+	is_jumping = true
+	jump_hold_time = 0.0
+
+func stop_jump(delta):
+	velocity.y = 0
+>>>>>>> Stashed changes
 
 func update_animation():
 	if is_ground_pounding:
