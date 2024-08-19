@@ -27,3 +27,10 @@ event = {
 trigger_on = 1
 
 [node name="AkListener2D" type="AkListener2D" parent="InitBank/MainBank"]
+
+[node name="enemyDeathEvent" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 3249137159,
+"name": "enemyDeath"
+}
+trigger_on = 1

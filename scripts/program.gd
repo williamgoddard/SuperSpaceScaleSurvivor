@@ -1,6 +1,9 @@
 extends Node2D
 
 enum GameState {MENU, INGAME, GAME_OVER}
+@onready var enemy_death_event = $InitBank/MainBank/enemyDeathEvent
+@onready var play_music = $InitBank/MainBank/playMusic
+
 
 const MAIN_MENU = preload("res://scene/main_menu.tscn")
 const GAME = preload("res://scene/game.tscn")
@@ -10,6 +13,7 @@ var current_scene : Node
 var seesaw_length := 0.0:
 	set(value):
 		seesaw_length = value
+		Wwise.set_rtpc_value("seesawLength",seesaw_length,play_music)
 	
 var game_state := GameState.MENU:
 	set(value):
@@ -33,6 +37,8 @@ func _ready():
 	main_menu.start_game.connect(_set_game)
 	add_child(main_menu)
 	game_state = GameState.MENU
+	Wwise.register_game_obj(self, "Program")
+	Wwise.post_event("enemyDeath", self)
 	
 
 func _set_main_menu():
@@ -65,6 +71,7 @@ func _set_seesaw_length(value : float):
 	seesaw_length = value
 
 func _enemy_died():
+	Wwise.post_event("enemyDeath",enemy_death_event)
 	pass
 
 func _jump():
@@ -90,3 +97,4 @@ func _menu_option_hover():
 
 func _menu_option_press():
 	pass
+
