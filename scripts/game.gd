@@ -8,6 +8,7 @@ signal enemy_died_signal()
 signal jump_signal()
 signal dash_signal()
 signal dash_replenish_signal()
+signal star_collected_signal()
 
 const WHACKER = preload("res://scene/whacker.tscn")
 const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
@@ -26,9 +27,9 @@ const MAX_ROTATION_SPEED = 60
 @export var seesaw_length := 15.0:
 	set(value):
 		if value < 0.5:
-			value = 0.5
-		elif value > 15:
-			value = 15.0
+			seesaw_length = 0.5
+		elif value > 15.0:
+			seesaw_length = 15.0
 		else:
 			seesaw_length = value
 		seesaw_length_signal.emit(seesaw_length)
@@ -125,6 +126,10 @@ func _ground_pound():
 func _enemy_died():
 	score += abs(floor(rotation_speed))
 	enemy_died_signal.emit()
+	
+func _star_collected():
+	seesaw_length += 3.0
+	star_collected_signal.emit()
 
 func set_sewsaw_lengths():
 	seesaw.length = seesaw_length

@@ -122,3 +122,4 @@ star_collector_node = NodePath("../Seesaw/Fake_player")
 [connection signal="pressed" from="CanvasLayer/increase_length" to="." method="_on_increase_length_pressed"]
 [connection signal="pressed" from="CanvasLayer/decrease_length" to="." method="_on_decrease_length_pressed"]
 [connection signal="pressed" from="CanvasLayer/spawn_power_up" to="Enemies_spawn" method="_on_spawn_power_up_pressed"]
+[connection signal="star_collected" from="Power_UP_Spawner" to="." method="_star_collected"]
