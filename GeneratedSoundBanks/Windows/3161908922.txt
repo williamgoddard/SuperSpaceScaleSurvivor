@@ -7,9 +7,9 @@ State Group	ID	Name			Wwise Object Path	Notes
 
 State	ID	Name	State Group			Notes
 	748895195	None	gamestate			
-	2201105581	credits	gamestate			
 	2607556080	menu	gamestate			
 	2937832959	battle	gamestate			
+	4158285989	gameover	gamestate			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	41331145	seesawLength			\Default Work Unit\seesawLength	
@@ -23,6 +23,8 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	68879301	bass3	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\bass3_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\bass3		576096
 	126713765	kick2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\kick2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\kick2		576096
+	341278120	8bitmusic	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\8bitmusic_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameOver\8bitmusic\8bitmusic		2306144
 	602316853	8bitmusicalarm	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\8bitmusicalarm_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\8bitmusicalarm		384144
+	793526793	8bitfunky	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\8bitfunky_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\menu\8bitfunky\8bitfunky		3074144
 	982078910	8bitmonsterdeath	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\8bitmonsterdeath_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\8bitmonsterdeath\8bitmonsterdeath		384144
 

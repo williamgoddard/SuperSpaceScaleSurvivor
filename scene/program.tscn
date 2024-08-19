@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyeje166u606u"]
+[gd_scene load_steps=2 format=3 uid="uid://3fh4bihar5nt"]
 
 [ext_resource type="Script" path="res://scripts/program.gd" id="1_fyltk"]
 
 [node name="Program" type="Node2D"]
 script = ExtResource("1_fyltk")
+
+[node name="InitBank" type="AkBank" parent="."]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="MainBank" type="AkBank" parent="InitBank"]
+bank = {
+"id": 3161908922,
+"name": "Main"
+}
+load_on = 1
+
+[node name="playMusic" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 417627684,
+"name": "playMusic"
+}
+trigger_on = 1
+
+[node name="AkListener2D" type="AkListener2D" parent="InitBank/MainBank"]

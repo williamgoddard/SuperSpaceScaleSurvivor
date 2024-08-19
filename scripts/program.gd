@@ -14,6 +14,17 @@ var seesaw_length := 0.0:
 var game_state := GameState.MENU:
 	set(value):
 		game_state = value
+		
+		
+		if (game_state == GameState.MENU):
+		
+			Wwise.set_state("gamestate","menu")
+		elif (game_state == GameState.INGAME):
+			print_debug("GameState changed to battle!")
+			Wwise.set_state("gamestate","battle")
+		elif (game_state == GameState.GAME_OVER):
+			Wwise.set_state("gamestate", "gameover")
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +32,8 @@ func _ready():
 	current_scene = main_menu
 	main_menu.start_game.connect(_set_game)
 	add_child(main_menu)
+	game_state = GameState.MENU
+	
 
 func _set_main_menu():
 	current_scene.queue_free()
@@ -29,6 +42,7 @@ func _set_main_menu():
 	main_menu.start_game.connect(_set_game)
 	add_child(main_menu)
 	game_state = GameState.MENU
+	
 
 func _set_game():
 	current_scene.queue_free()

@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{0D35280A-A223-00D3-D795-CA05A90FBB04}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FB1DA5D2-7889-876C-ECA0-AD1C5AA6799B}">
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
 			<Plugins>
@@ -43,9 +43,9 @@
 				<StateGroup Id="4091656514" Name="gamestate">
 					<States>
 						<State Id="748895195" Name="None"/>
-						<State Id="2201105581" Name="credits"/>
 						<State Id="2607556080" Name="menu"/>
 						<State Id="2937832959" Name="battle"/>
+						<State Id="4158285989" Name="gameover"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
@@ -188,7 +188,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{582A9EC9-6719-8B84-5C57-EF265BBDC8E1}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3CAC38D6-69F0-C963-8554-AF817AD58DCB}">
 			<ShortName>Main</ShortName>
 			<Path>3161908922.bnk</Path>
 			<Media>
@@ -200,9 +200,17 @@
 					<ShortName>kick2.wav</ShortName>
 					<CachePath>SFX/kick2_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="341278120" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>8bitmusic.wav</ShortName>
+					<CachePath>SFX/8bitmusic_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="602316853" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>8bitmusicalarm.wav</ShortName>
 					<CachePath>SFX/8bitmusicalarm_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="793526793" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>8bitfunky.wav</ShortName>
+					<CachePath>SFX/8bitfunky_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="982078910" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>8bitmonsterdeath.wav</ShortName>
@@ -221,22 +229,44 @@
 					</ActionTrigger>
 				</Event>
 				<Event Id="417627684" Name="playMusic">
-					<MediaRefs>
-						<MediaRef Id="68879301"/>
-						<MediaRef Id="126713765"/>
-						<MediaRef Id="602316853"/>
-						<MediaRef Id="982078910"/>
-					</MediaRefs>
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="12170001"/>
-						</Custom>
-					</PluginRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="4091656514" Id="2937832959"/>
+							<MediaRefs>
+								<MediaRef Id="68879301"/>
+								<MediaRef Id="126713765"/>
+								<MediaRef Id="602316853"/>
+								<MediaRef Id="982078910"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="4091656514" Id="4158285989"/>
+							<MediaRefs>
+								<MediaRef Id="341278120"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="4091656514" Id="2607556080"/>
+							<MediaRefs>
+								<MediaRef Id="793526793"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 			</Events>
 			<GameParameters>
 				<GameParameter Id="41331145" Name="seesawLength"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="4091656514" Name="gamestate">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="2607556080" Name="menu"/>
+						<State Id="2937832959" Name="battle"/>
+						<State Id="4158285989" Name="gameover"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="1769415205" Name="HP">
 					<GameParameterRef Id="41331145"/>
@@ -252,5 +282,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{AF1FA9CD-D237-10AE-4148-687D3AC389A9}</FileHash>
+	<FileHash>{0398E3A2-E432-FB71-5A74-5156012A7B9A}</FileHash>
 </SoundBanksInfo>

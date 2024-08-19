@@ -13,9 +13,9 @@ State Group	ID	Name			Wwise Object Path	Notes
 State	ID	Name	State Group			Notes
 	748895195	None	New_State_Group			
 	748895195	None	gamestate			
-	2201105581	credits	gamestate			
 	2607556080	menu	gamestate			
 	2937832959	battle	gamestate			
+	4158285989	gameover	gamestate			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
