@@ -48,7 +48,7 @@ func _set_game():
 	current_scene.queue_free()
 	var game_scene = GAME.instantiate()
 	current_scene = game_scene
-	game_scene.return_to_menu.connect(_set_game)
+	game_scene.return_to_menu.connect(_set_main_menu)
 	game_scene.game_over_signal.connect(_game_over)
 	game_scene.seesaw_length_signal.connect(_set_seesaw_length)
 	game_scene.enemy_died_signal.connect(_enemy_died)
