@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+signal jump_signal()
+signal dash_signal()
+signal dash_replenish_signal()
+signal ground_pound_hit()
+
 const MAX_SPEED = 500.0
 const JUMP_VELOCITY = -620.0
 const ACCELERATION = 1500.0
@@ -29,10 +34,12 @@ var recovery_timer = 0.0
 
 var is_dashing = false
 var dash_timer = 0.0
-var dash_cooldown_timer = 0.0
+var dash_cooldown_timer = 0.0:
+	set(value):
+		if dash_cooldown_timer > 0 and value <= 0:
+			dash_replenish_signal.emit()
+		dash_cooldown_timer = value
 var dash_direction = 0
-
-signal ground_pound_hit
 
 func _physics_process(delta):
 	# Gravity
@@ -134,6 +141,7 @@ func handle_movement(delta):
 		facing_right = input_direction > 0
 	
 func start_dash(direction):
+	dash_signal.emit()
 	is_dashing = true
 	dash_timer = DASH_DURATION
 	dash_direction = direction if direction != 0 else (1 if facing_right else -1)
@@ -145,6 +153,7 @@ func start_ground_pound():
 	velocity.y = GROUND_POUND_SPEED
 
 func start_jump():
+	jump_signal.emit()
 	velocity.y = JUMP_VELOCITY
 	current_jumps += 1
 	airtime = COYOTE_TIME

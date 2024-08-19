@@ -33,6 +33,9 @@ func _set_game():
 	game_scene.game_over_signal.connect(_game_over)
 	game_scene.seesaw_length_signal.connect(_set_seesaw_length)
 	game_scene.enemy_died_signal.connect(_enemy_died)
+	game_scene.jump_signal.connect(_jump)
+	game_scene.dash_signal.connect(_dash)
+	game_scene.dash_replenish_signal.connect(_dash_replenish)
 	add_child(game_scene)
 	ingame = true
 	game_over = false

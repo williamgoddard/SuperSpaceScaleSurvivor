@@ -4,6 +4,10 @@ signal return_to_menu()
 signal game_over_signal(state: bool)
 signal seesaw_length_signal(length: float)
 signal enemy_died_signal()
+signal jump_signal()
+signal dash_signal()
+signal dash_replenish_signal()
+signal ground_pound_hit()
 
 const WHACKER = preload("res://scene/whacker.tscn")
 const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
@@ -112,3 +116,12 @@ func _on_decrease_length_pressed():
 
 func _return_to_menu():
 	return_to_menu.emit()
+
+func _on_player_jump_signal():
+	jump_signal.emit()
+
+func _on_player_dash_signal():
+	dash_signal.emit()
+
+func _on_player_dash_replenish_signal():
+	dash_replenish_signal.emit()
