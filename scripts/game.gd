@@ -100,6 +100,10 @@ func _process(delta):
 			for other_whacker in whackers_to_remove:
 				whackers.erase(other_whacker)
 				other_whacker.destroy()
+			if whackers.size() >= 3:
+				var old_whacker = whackers.pop_front()
+				whackers.erase(old_whacker)
+				old_whacker.destroy()
 			whackers.push_back(whacker)
 			seesaw.add_child(whacker)
 
