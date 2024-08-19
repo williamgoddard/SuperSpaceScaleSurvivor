@@ -164,3 +164,22 @@ func _on_player_dash_signal():
 
 func _on_player_dash_replenish_signal():
 	dash_replenish_signal.emit()
+
+
+func _on_area_2d_body_entered(body):
+	if "Enemy" in body.name:
+		print("fuck")
+		body.die()
+		seesaw_damaged(1.0)
+	pass # Replace with function body.
+
+func seesaw_damaged(damage: float):
+	seesaw_length -= damage
+	check_if_destroyed()
+
+func check_if_destroyed():
+	print(seesaw_length)
+	if seesaw_length <= 0.5:
+		print("unique bad")
+		offscreen_seesaw.shape = null
+		seesaw.visible = false
