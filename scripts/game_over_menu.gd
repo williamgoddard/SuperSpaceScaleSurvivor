@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var main_menu_button = $MainMenuButton
 @onready var exit_button = $ExitButton
+@onready var score_label = $ScoreLabel
+
+@export var score := 0
 
 const MAX_OPTION := 1
 
@@ -17,6 +20,7 @@ var selected_option := 0:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_selection()
+	score_label.text = str(score)
 
 func set_selection():
 	match selected_option:

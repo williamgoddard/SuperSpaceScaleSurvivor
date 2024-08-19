@@ -16,6 +16,26 @@ text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label3" type="Label" parent="."]
+offset_top = 258.0
+offset_right = 1921.0
+offset_bottom = 586.0
+theme_override_fonts/font = ExtResource("2_f5bcl")
+theme_override_font_sizes/font_size = 80
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_top = 371.0
+offset_right = 1921.0
+offset_bottom = 699.0
+theme_override_fonts/font = ExtResource("2_f5bcl")
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MainMenuButton" parent="." instance=ExtResource("1_wa1vh")]
 position = Vector2(96, 843)
 label_text = "MAIN MENU"

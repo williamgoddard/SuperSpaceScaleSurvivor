@@ -8,6 +8,7 @@ const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 @onready var player = $Player
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var fake_player = $Seesaw/Fake_player
+@onready var canvas_layer = $CanvasLayer
 
 const MAX_ROTATION_SPEED = 60
 
@@ -83,5 +84,7 @@ func set_sewsaw_lengths():
 	
 func end_game():
 	game_over = true
+	canvas_layer.hide()
 	var game_over_menu := GAME_OVER_MENU.instantiate()
+	game_over_menu.score = score
 	add_child(game_over_menu)
