@@ -92,3 +92,11 @@ func end_game():
 	var game_over_menu := GAME_OVER_MENU.instantiate()
 	game_over_menu.score = score
 	add_child(game_over_menu)
+
+
+func _on_increase_length_pressed():
+	seesaw_length += 1
+
+
+func _on_decrease_length_pressed():
+	seesaw_length -= 1
