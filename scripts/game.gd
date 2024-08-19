@@ -9,6 +9,7 @@ const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var fake_player = $Seesaw/Fake_player
 @onready var canvas_layer = $CanvasLayer
+@onready var ak_event_2d = $Wwise/AkBank/AkBank/AkEvent2D
 
 const MAX_ROTATION_SPEED = 60
 
@@ -20,6 +21,9 @@ const MAX_ROTATION_SPEED = 60
 			value = 15.0
 		else:
 			seesaw_length = value
+		#set_rtpc_value(name: String, value: float, game_object: Object)
+		Wwise.set_rtpc_value("seesaw_length",15,ak_event_2d)
+
 		set_sewsaw_lengths()
 
 @export var decay_speed = 0.1
