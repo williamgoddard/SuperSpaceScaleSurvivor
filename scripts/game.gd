@@ -1,6 +1,7 @@
 class_name Game extends Node2D
 
 signal return_to_menu()
+signal retry_game()
 signal game_over_signal(state: bool)
 signal seesaw_length_signal(length: float)
 signal enemy_died_signal()
@@ -127,6 +128,7 @@ func end_game():
 	var game_over_menu := GAME_OVER_MENU.instantiate()
 	game_over_menu.score = score
 	game_over_menu.end_game.connect(_return_to_menu)
+	game_over_menu.retry_game.connect(_retry_game)
 	add_child(game_over_menu)
 
 func _on_increase_length_pressed():
@@ -137,6 +139,9 @@ func _on_decrease_length_pressed():
 
 func _return_to_menu():
 	return_to_menu.emit()
+
+func _retry_game():
+	retry_game.emit()
 
 func _on_player_jump_signal():
 	jump_signal.emit()

@@ -55,6 +55,7 @@ func _set_game():
 	var game_scene = GAME.instantiate()
 	current_scene = game_scene
 	game_scene.return_to_menu.connect(_set_main_menu)
+	game_scene.retry_game.connect(_set_game)
 	game_scene.game_over_signal.connect(_game_over)
 	game_scene.seesaw_length_signal.connect(_set_seesaw_length)
 	game_scene.enemy_died_signal.connect(_enemy_died)
@@ -89,7 +90,16 @@ func _ground_pound_start():
 func _ground_pound_land():
 	pass
 
-func _place_basher():
+func _place_whacker():
+	pass
+	
+func _whacker_destroy():
+	pass
+	
+func _powerup_collect():
+	pass
+	
+func _powerup_sparkle():
 	pass
 
 func _menu_option_hover():
