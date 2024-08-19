@@ -1,13 +1,14 @@
 extends Node2D
 
+enum GameState {MENU, INGAME, GAME_OVER}
+
 const MAIN_MENU = preload("res://scene/main_menu.tscn")
 const GAME = preload("res://scene/game.tscn")
 
 var current_scene : Node
 
-var ingame := false
-var game_over := false
 var seesaw_length := 0.0
+var game_state := GameState.MENU
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +23,7 @@ func _set_main_menu():
 	current_scene = main_menu
 	main_menu.start_game.connect(_set_game)
 	add_child(main_menu)
-	ingame = false
-	game_over = false
+	game_state = GameState.MENU
 
 func _set_game():
 	current_scene.queue_free()
@@ -37,11 +37,10 @@ func _set_game():
 	game_scene.dash_signal.connect(_dash)
 	game_scene.dash_replenish_signal.connect(_dash_replenish)
 	add_child(game_scene)
-	ingame = true
-	game_over = false
+	game_state = GameState.INGAME
 
 func _game_over(value : bool):
-	game_over = value
+	game_state = GameState.GAME_OVER
 
 func _set_seesaw_length(value : float):
 	seesaw_length = value

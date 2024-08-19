@@ -7,7 +7,6 @@ signal enemy_died_signal()
 signal jump_signal()
 signal dash_signal()
 signal dash_replenish_signal()
-signal ground_pound_hit()
 
 const WHACKER = preload("res://scene/whacker.tscn")
 const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
