@@ -40,9 +40,10 @@ func random_point_on_circle(radius: float) -> Vector2:
 	return Vector2(x, y)
 
 func die():
+	print("test")
 	emit_signal("star_collected")
 	queue_free()
 
 func _on_area_2d_body_entered(body):
-	if body == star_collector_node:
+	if body is FakePlayer:
 		die()

@@ -1,7 +1,6 @@
-extends Node2D
+class_name FakePlayer extends CharacterBody2D
 
 @export var actual_player: NodePath
-@onready var area_2d = $Area2D
 
 var actual_player_node: Node2D
 
@@ -12,8 +11,6 @@ func _process(delta):
 	position.x = actual_player_node.position.x - 3000
 	position.y = actual_player_node.position.y
 	update_animation()
-
-
 
 func update_animation():
 	var velocity = actual_player_node.velocity  
