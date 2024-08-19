@@ -72,8 +72,7 @@ func _set_seesaw_length(value : float):
 	seesaw_length = value
 
 func _enemy_died():
-	$InitBank/MainBank/enemyDeathEvent.post_event()
-	
+	Wwise.post_event("enemyDeath",enemy_death_event)
 	pass
 
 func _jump():
