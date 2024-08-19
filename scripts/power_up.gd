@@ -6,6 +6,8 @@ extends Node2D
 @export var small_circle_radius: float = 500.0
 @export var star_collector_node: Node2D
 
+@onready var power_up_sprite = $Power_UP_Sprite
+
 signal star_collected
 var direction: Vector2
 var large_circle_center: Vector2
@@ -32,6 +34,7 @@ func _process(delta):
 	# Check if the star has exited the larger circle and delete it if it has
 	if position.distance_to(large_circle_center) > large_circle_radius:
 		queue_free()
+	power_up_sprite.rotation_degrees += delta * 180
 		
 func random_point_on_circle(radius: float) -> Vector2:
 	var angle = randf() * TAU  # TAU is 2 * PI
