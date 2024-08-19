@@ -7,8 +7,13 @@ const GAME = preload("res://scene/game.tscn")
 
 var current_scene : Node
 
-var seesaw_length := 0.0
-var game_state := GameState.MENU
+var seesaw_length := 0.0:
+	set(value):
+		seesaw_length = value
+	
+var game_state := GameState.MENU:
+	set(value):
+		game_state = value
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
