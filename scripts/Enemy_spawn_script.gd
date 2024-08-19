@@ -8,6 +8,7 @@ signal enemy_died()
 @export var spawn_radius : float = 200.0
 @export var target_node : Node2D
 @export var kill_node : Node2D
+const POWER_UP = preload("res://scene/power_up.tscn")
 var enemy
 func _ready():
 	pass
@@ -40,3 +41,8 @@ func _on_spawn_enemy_pressed():
 
 func _on_enemy_death():
 	enemy_died.emit()
+
+
+func _on_spawn_power_up_pressed():
+	POWER_UP.instantiate()
+	pass # Replace with function body.

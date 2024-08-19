@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqqws3pflcyae"]
+
+[ext_resource type="Script" path="res://scripts/power_up.gd" id="1_fe5td"]
+[ext_resource type="Texture2D" uid="uid://bev4veuolohb3" path="res://assets/sprites/power_up.png" id="1_yp2vi"]
+
+[node name="Power_UP" type="Node2D"]
+script = ExtResource("1_fe5td")
+
+[node name="Power_UP_Sprite" type="Sprite2D" parent="."]
+position = Vector2(-1, -1.5)
+scale = Vector2(0.979167, 1.03125)
+texture = ExtResource("1_yp2vi")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
