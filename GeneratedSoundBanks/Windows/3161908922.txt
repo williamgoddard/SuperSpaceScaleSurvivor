@@ -1,7 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	417627684	playMusic			\Default Work Unit\playMusic	
 	3249137159	enemyDeath			\Default Work Unit\enemyDeath	
-	3583473913	playDeathEnemy			\Default Work Unit\playDeathEnemy	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	4091656514	gamestate			\Default Work Unit\gamestate	
