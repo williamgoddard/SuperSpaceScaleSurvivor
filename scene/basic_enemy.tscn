@@ -135,6 +135,8 @@ radius = 20.0062
 radius = 18.1108
 
 [node name="Basic_enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_0n3b5")
 
@@ -143,6 +145,8 @@ sprite_frames = SubResource("SpriteFrames_d0eox")
 animation = &"move"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_fgoov")

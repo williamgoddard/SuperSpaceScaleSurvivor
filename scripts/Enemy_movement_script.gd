@@ -30,7 +30,7 @@ func die():
 
 
 func _on_area_2d_body_entered(body):
-	if body is TileMap:
+	if body is Whacker:
 		die()
 	print(body)
 	pass # Replace with function body.

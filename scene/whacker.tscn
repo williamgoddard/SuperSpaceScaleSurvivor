@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8tqtv25k0ypp"]
+[gd_scene load_steps=4 format=3 uid="uid://c8tqtv25k0ypp"]
 
 [ext_resource type="Texture2D" uid="uid://dnqk06qog6jl6" path="res://assets/sprites/whacker.png" id="1_1pxc3"]
+[ext_resource type="Script" path="res://scripts/whacker.gd" id="1_auu51"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bavtc"]
 
 [node name="Whacker" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_auu51")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1pxc3")
