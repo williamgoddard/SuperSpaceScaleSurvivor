@@ -1,9 +1,10 @@
 extends CanvasLayer
 
 signal end_game()
+signal retry_game()
 
+@onready var retry_button = $RetryButton
 @onready var main_menu_button = $MainMenuButton
-@onready var exit_button = $ExitButton
 @onready var score_label = $ScoreLabel
 
 @export var score := 0
@@ -27,14 +28,14 @@ func _ready():
 func set_selection():
 	match selected_option:
 		0:
-			main_menu_button.select()
-			exit_button.deselect()
+			retry_button.select()
+			main_menu_button.deselect()
 		1:
-			main_menu_button.deselect()
-			exit_button.select()
+			retry_button.deselect()
+			main_menu_button.select()
 		_:
+			retry_button.deselect()
 			main_menu_button.deselect()
-			exit_button.deselect()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
@@ -46,6 +47,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		match selected_option:
 			0:
-				end_game.emit()
+				retry_game.emit()
 			1:
-				get_tree().quit()
+				end_game.emit()

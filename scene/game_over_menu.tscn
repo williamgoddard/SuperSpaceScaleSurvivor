@@ -41,10 +41,10 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenuButton" parent="." instance=ExtResource("1_wa1vh")]
+[node name="RetryButton" parent="." instance=ExtResource("1_wa1vh")]
 position = Vector2(96, 843)
-label_text = "MAIN MENU"
+label_text = "RETRY"
 
-[node name="ExitButton" parent="." instance=ExtResource("1_wa1vh")]
+[node name="MainMenuButton" parent="." instance=ExtResource("1_wa1vh")]
 position = Vector2(96, 993)
-label_text = "EXIT"
+label_text = "MAIN MENU"
