@@ -135,6 +135,9 @@ func handle_movement(delta):
 	#jump logic
 	if Input.is_action_just_pressed("jump") and current_jumps < max_jumps:
 		start_jump()
+	
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y /= 2
 
 	#facing direction
 	if input_direction != 0:
