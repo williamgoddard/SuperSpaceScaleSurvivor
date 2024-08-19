@@ -1,5 +1,10 @@
 class_name Game extends Node2D
 
+signal return_to_menu()
+signal game_over_signal(state: bool)
+signal seesaw_length_signal(length: float)
+signal enemy_died_signal()
+
 const WHACKER = preload("res://scene/whacker.tscn")
 const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 
@@ -21,6 +26,7 @@ const MAX_ROTATION_SPEED = 60
 			value = 15.0
 		else:
 			seesaw_length = value
+		seesaw_length_signal.emit(seesaw_length)
 		#set_rtpc_value(name: String, value: float, game_object: Object)
 		Wwise.set_rtpc_value("seesawLength",seesaw_length,ak_event_2d)
 
@@ -35,7 +41,10 @@ const MAX_ROTATION_SPEED = 60
 		score_label.text = str(score)
 		score = value
 		
-@export var game_over := false
+@export var game_over := false:
+	set(value):
+		game_over_signal.emit(value)
+		game_over = value
 		
 var score_delta_tracker := 0.0
 
@@ -67,7 +76,7 @@ func _process(delta):
 			score_delta_tracker -= floor(score_delta_tracker)
 	
 	if not game_over:
-		if Input.is_action_just_pressed("place"):
+		if Input.is_action_just_pressed("ground_pound") and player.is_on_floor():
 			var whacker = WHACKER.instantiate()
 			whacker.position.x = player.position.x - 3000
 			whacker.z_index = -10
@@ -81,6 +90,7 @@ func _ground_pound():
 	
 func _enemy_died():
 	score += abs(floor(rotation_speed))
+	enemy_died_signal.emit()
 
 func set_sewsaw_lengths():
 	seesaw.length = seesaw_length
@@ -91,12 +101,14 @@ func end_game():
 	canvas_layer.hide()
 	var game_over_menu := GAME_OVER_MENU.instantiate()
 	game_over_menu.score = score
+	game_over_menu.end_game.connect(_return_to_menu)
 	add_child(game_over_menu)
-
 
 func _on_increase_length_pressed():
 	seesaw_length += 1
 
-
 func _on_decrease_length_pressed():
 	seesaw_length -= 1
+
+func _return_to_menu():
+	return_to_menu.emit()

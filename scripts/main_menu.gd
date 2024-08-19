@@ -1,6 +1,6 @@
 extends Node2D
 
-const GAME = preload("res://scene/game.tscn")
+signal start_game()
 
 @onready var play_button = $PlayButton
 @onready var options_button = $OptionsButton
@@ -50,6 +50,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		match selected_option:
 			0:
-				get_tree().change_scene_to_packed(GAME)
+				start_game.emit()
 			2:
 				get_tree().quit()

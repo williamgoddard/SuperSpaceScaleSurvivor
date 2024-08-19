@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal end_game()
+
 @onready var main_menu_button = $MainMenuButton
 @onready var exit_button = $ExitButton
 @onready var score_label = $ScoreLabel
@@ -44,6 +46,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_select"):
 		match selected_option:
 			0:
-				get_tree().change_scene_to_file("res://scene/main_menu.tscn")
+				end_game.emit()
 			1:
 				get_tree().quit()
