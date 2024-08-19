@@ -1,0 +1,28 @@
+Event	ID	Name			Wwise Object Path	Notes
+	417627684	playMusic			\Default Work Unit\playMusic	
+	3249137159	enemyDeath			\Default Work Unit\enemyDeath	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	4091656514	gamestate			\Default Work Unit\gamestate	
+
+State	ID	Name	State Group			Notes
+	748895195	None	gamestate			
+	2201105581	credits	gamestate			
+	2607556080	menu	gamestate			
+	2937832959	battle	gamestate			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	41331145	seesawLength			\Default Work Unit\seesawLength	
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	3249137159	enemyDeath			\Default Work Unit\enemyDeath	
+
+Effect plug-ins	ID	Name	Type				Notes
+	12170001	fast (Custom)	Wwise Time Stretch			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	68879301	bass3	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\bass3_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\bass3		576096
+	126713765	kick2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\kick2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\kick2		576096
+	602316853	8bitmusicalarm	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\8bitmusicalarm_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\8bitmusicalarm		384144
+	982078910	8bitmonsterdeath	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Windows\SFX\8bitmonsterdeath_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\8bitmonsterdeath\8bitmonsterdeath		384144
+

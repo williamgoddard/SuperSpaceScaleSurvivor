@@ -100,10 +100,14 @@ bank = {
 load_on = 1
 
 [node name="AkEvent2D" type="AkEvent2D" parent="Wwise/AkBank/AkBank"]
+event = {
+"id": 417627684,
+"name": "playMusic"
+}
 trigger_on = 1
 rotation = 0.000337396
 
-[node name="AkListener2D" type="AkListener2D" parent="Wwise"]
+[node name="AkListener2D" type="AkListener2D" parent="Wwise/AkBank/AkBank"]
 
 [connection signal="enemy_died" from="Enemies_spawn" to="." method="_enemy_died"]
 [connection signal="ground_pound_hit" from="Player" to="." method="_ground_pound"]
