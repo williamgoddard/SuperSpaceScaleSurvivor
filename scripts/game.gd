@@ -86,7 +86,12 @@ func _process(delta):
 	if not game_over:
 		if Input.is_action_just_pressed("ground_pound") and player.is_on_floor():
 			var whacker = WHACKER.instantiate()
-			whacker.position.x = player.position.x - 3000
+			var whacker_position : int = player.position.x - 3000
+			if abs(whacker_position) < 104:
+				whacker_position = sign(whacker_position) * 104
+			if abs(whacker_position) < 104:
+				whacker_position = 104
+			whacker.position.x = whacker_position
 			whacker.z_index = -10
 			var whackers_to_remove : Array[Whacker] = []
 			for other_whacker in whackers:
