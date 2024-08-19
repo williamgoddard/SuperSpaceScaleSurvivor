@@ -83,6 +83,28 @@ position = Vector2(0.562012, -53.8059)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_jf326")
 
+[node name="Wwise" type="Node2D" parent="."]
+
+[node name="AkBank" type="AkBank" parent="Wwise"]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="AkBank" type="AkBank" parent="Wwise/AkBank"]
+bank = {
+"id": 3161908922,
+"name": "Main"
+}
+load_on = 1
+
+[node name="AkEvent2D" type="AkEvent2D" parent="Wwise/AkBank/AkBank"]
+trigger_on = 1
+rotation = 0.000337396
+
+[node name="AkListener2D" type="AkListener2D" parent="Wwise"]
+
 [connection signal="enemy_died" from="Enemies_spawn" to="." method="_enemy_died"]
 [connection signal="ground_pound_hit" from="Player" to="." method="_ground_pound"]
 [connection signal="pressed" from="CanvasLayer/spawn_enemy" to="Enemies_spawn" method="_on_spawn_enemy_pressed"]
