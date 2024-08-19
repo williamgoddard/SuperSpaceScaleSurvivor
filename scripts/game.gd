@@ -107,6 +107,14 @@ func _process(delta):
 				old_whacker.destroy()
 			whackers.push_back(whacker)
 			seesaw.add_child(whacker)
+			
+	var whackers_to_remove : Array[Whacker] = []
+	for whacker in whackers:
+		if whacker.hit_enemy_timer > whacker.HIT_ENEMY_TIMEOUT:
+			whackers_to_remove.append(whacker)
+	for whacker in whackers_to_remove:
+		whackers.erase(whacker)
+		whacker.destroy()
 
 func _ground_pound():
 	var player_position : float = (player.position.x - 3000) / 48

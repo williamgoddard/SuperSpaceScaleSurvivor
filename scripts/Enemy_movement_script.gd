@@ -32,6 +32,7 @@ func die():
 func _on_area_2d_body_entered(body):
 	if body is Whacker and abs(game.rotation_speed) > 30:
 		if (flipped and game.rotation_speed > 0) or (not flipped and game.rotation_speed < 0):
+			body.hit_enemy = true
 			die()
 	print(body)
 	pass # Replace with function body.
