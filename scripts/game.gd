@@ -76,7 +76,7 @@ func _ground_pound():
 	ground_pound_timer = 0.5
 	
 func _enemy_died():
-	score += floor(rotation_speed)
+	score += abs(floor(rotation_speed))
 
 func set_sewsaw_lengths():
 	seesaw.length = seesaw_length
