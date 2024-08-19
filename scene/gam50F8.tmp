@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://6poigvjwufks"]
+
+[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_1agjh"]
+[ext_resource type="PackedScene" uid="uid://de5hpfhcp1cge" path="res://scene/main_menu_button.tscn" id="1_wa1vh"]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_1agjh")
+
+[node name="MainMenuButton" parent="." instance=ExtResource("1_wa1vh")]
+position = Vector2(96, 843)
+label_text = "MAIN MENU"
+
+[node name="ExitButton" parent="." instance=ExtResource("1_wa1vh")]
+position = Vector2(96, 993)
+label_text = "QUIT"

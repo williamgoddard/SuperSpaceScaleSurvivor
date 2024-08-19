@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://6poigvjwufks"]
+
+[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_1agjh"]
+[ext_resource type="PackedScene" uid="uid://de5hpfhcp1cge" path="res://scene/main_menu_button.tscn" id="1_wa1vh"]
+[ext_resource type="FontFile" uid="uid://xukl87x58yxf" path="res://assets/fonts/PressStart2P.ttf" id="2_f5bcl"]
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_1agjh")
+
+[node name="Label2" type="Label" parent="."]
+offset_right = 1921.0
+offset_bottom = 328.0
+theme_override_fonts/font = ExtResource("2_f5bcl")
+theme_override_font_sizes/font_size = 160
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" parent="." instance=ExtResource("1_wa1vh")]
+position = Vector2(96, 843)
+label_text = "MAIN MENU"
+
+[node name="ExitButton" parent="." instance=ExtResource("1_wa1vh")]
+position = Vector2(96, 993)
+label_text = "QUIT"

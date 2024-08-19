@@ -1,11 +1,13 @@
 extends Node2D
 
 const WHACKER = preload("res://scene/whacker.tscn")
+const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 
 @onready var seesaw = $Seesaw
 @onready var offscreen_seesaw = $OffscreenSeesaw
 @onready var player = $Player
 @onready var score_label = $CanvasLayer/ScoreLabel
+@onready var fake_player = $Seesaw/Fake_player
 
 const MAX_ROTATION_SPEED = 60
 
@@ -28,6 +30,8 @@ const MAX_ROTATION_SPEED = 60
 		score_label.text = str(score)
 		score = value
 		
+@export var game_over := false
+		
 var score_delta_tracker := 0.0
 
 var ground_pound_timer := 0.0
@@ -47,18 +51,22 @@ func _process(delta):
 			rotation_speed = lerp(rotation_speed, 0.0, 0.01)
 		else:
 			rotation_speed = lerp(rotation_speed, 0.0, 0.1)
-	print(rotation_speed)
-		
-	score_delta_tracker += delta * 10
-	if score_delta_tracker > 1:
-		score += floor(score_delta_tracker)
-		score_delta_tracker -= floor(score_delta_tracker)
-		
-	if Input.is_action_just_pressed("place"):
-		var whacker = WHACKER.instantiate()
-		whacker.position.x = player.position.x - 3000
-		whacker.z_index = -10
-		seesaw.add_child(whacker)
+			
+	if player.position.y >= 1000 and not game_over:
+		end_game()
+	
+	if not game_over:
+		score_delta_tracker += delta * 10
+		if score_delta_tracker > 1:
+			score += floor(score_delta_tracker)
+			score_delta_tracker -= floor(score_delta_tracker)
+	
+	if not game_over:
+		if Input.is_action_just_pressed("place"):
+			var whacker = WHACKER.instantiate()
+			whacker.position.x = player.position.x - 3000
+			whacker.z_index = -10
+			seesaw.add_child(whacker)
 
 func _ground_pound():
 	var player_position : float = (player.position.x - 3000) / 48
@@ -72,3 +80,8 @@ func _enemy_died():
 func set_sewsaw_lengths():
 	seesaw.length = seesaw_length
 	offscreen_seesaw.length = seesaw_length
+	
+func end_game():
+	game_over = true
+	var game_over_menu := GAME_OVER_MENU.instantiate()
+	add_child(game_over_menu)
