@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var game = $".."
+
 signal enemy_died()
 
 @export  var enemy_scene : PackedScene
@@ -18,8 +20,10 @@ func spawn_enemy():
 	enemy.target_node = target_node
 	enemy.kill_node = kill_node
 	if randf() < 0.5: #flip randomply
-		enemy.scale.x *= -1  
+		enemy.scale.x *= -1
+		enemy.flipped = true
 	#enemy.scale = randf_range(1,1.5)
+	enemy.game = game
 	add_child(enemy)
 	enemy.look_at(target_node.position)
 

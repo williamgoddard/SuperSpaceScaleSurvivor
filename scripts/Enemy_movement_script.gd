@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed : float = 40.0
 @export var target_node : Node2D
 @export var kill_node : Area2D
+@export var game : Game
+@export var flipped := false
 var died = false
 
 signal enemy_died
@@ -27,11 +29,10 @@ func die():
 	#process_mode = Node.PROCESS_MODE_DISABLED
 	$AnimatedSprite2D.play("die")
 
-
-
 func _on_area_2d_body_entered(body):
-	if body is Whacker:
-		die()
+	if body is Whacker and abs(game.rotation_speed) > 30:
+		if (flipped and game.rotation_speed > 0) or (not flipped and game.rotation_speed < 0):
+			die()
 	print(body)
 	pass # Replace with function body.
 

@@ -1,4 +1,4 @@
-extends Node2D
+class_name Game extends Node2D
 
 const WHACKER = preload("res://scene/whacker.tscn")
 const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
