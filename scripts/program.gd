@@ -19,7 +19,6 @@ var game_state := GameState.MENU:
 	set(value):
 		game_state = value
 		
-		
 		if (game_state == GameState.MENU):
 		
 			Wwise.set_state("gamestate","menu")
