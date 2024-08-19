@@ -188,7 +188,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{56C98CB5-69F1-CD2F-0AB2-8FBBB03CB164}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CBDDDD0E-B209-3A3F-0933-52B13B1471F6}">
 			<ShortName>Main</ShortName>
 			<Path>3161908922.bnk</Path>
 			<Media>
@@ -227,6 +227,11 @@
 					<ActionTrigger>
 						<ActionTriggerEntry Id="3249137159" Name="enemyDeath"/>
 					</ActionTrigger>
+				</Event>
+				<Event Id="3583473913" Name="playDeathEnemy">
+					<MediaRefs>
+						<MediaRef Id="982078910"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="417627684" Name="playMusic">
 					<SwitchContainers>
@@ -287,5 +292,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{870044FA-3E61-440F-9B89-F72CEE6425B9}</FileHash>
+	<FileHash>{1455FDEF-F89B-2F73-8D09-93DAD0B83CFF}</FileHash>
 </SoundBanksInfo>
