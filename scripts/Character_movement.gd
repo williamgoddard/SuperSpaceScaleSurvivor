@@ -6,7 +6,7 @@ signal dash_replenish_signal()
 signal ground_pound_hit()
 
 const MAX_SPEED = 500.0
-const JUMP_VELOCITY = -320.0
+const JUMP_VELOCITY = -620.0
 const ACCELERATION = 1500.0
 const DECELERATION = 1500.0
 const AIR_CONTROL = 0.8
@@ -17,8 +17,6 @@ const DASH_COOLDOWN = 1.0
 const COYOTE_TIME = 0.2
 const GROUND_POUND_SPEED = 1200.0
 const GROUND_POUND_RECOVERY_TIME = 0.5
-const MAX_JUMP_HOLD_TIME = 0.5
-
 
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 var max_jumps = 3
@@ -28,7 +26,6 @@ var airtime = 0
 
 var can_double_jump = false
 var is_jumping = false
-var jump_hold_time = 0.0
 var facing_right = true
 
 var is_ground_pounding = false
@@ -109,9 +106,6 @@ func handle_movement(delta):
 		start_dash(input_direction)
 		if velocity.y > 0:
 			velocity.y = 0
-			
-	if Input.is_action_pressed("jump") and is_jumping:
-		continue_jump(delta)
 
 	#smoother acceleration and deceleration
 	if input_direction != 0:
@@ -163,16 +157,6 @@ func start_jump():
 	velocity.y = JUMP_VELOCITY
 	current_jumps += 1
 	airtime = COYOTE_TIME
-	is_jumping = true
-	jump_hold_time = 0.0
-
-func continue_jump(delta):
-	jump_hold_time += delta
-	if jump_hold_time < MAX_JUMP_HOLD_TIME:
-		velocity.y = JUMP_VELOCITY * (1 + (jump_hold_time / MAX_JUMP_HOLD_TIME))
-		if velocity.y < JUMP_VELOCITY:
-			velocity.y = JUMP_VELOCITY
-		print(velocity)
 
 func update_animation():
 	if is_ground_pounding:
