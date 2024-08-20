@@ -64,3 +64,45 @@ event = {
 "id": 228694372,
 "name": "playTick"
 }
+
+[node name="playPlaceWacker" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 3345699297,
+"name": "playWackerPlace"
+}
+
+[node name="playWackerDestroyed" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 2441673863,
+"name": "playWackerDisappear"
+}
+
+[node name="playSeesawDestroyed" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 3408267172,
+"name": "playSeesawDestroyed"
+}
+
+[node name="playSFXChangeVolume" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 3964040170,
+"name": "playChangeSFXVolume"
+}
+
+[node name="playMusicChangeVolume" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 3992794850,
+"name": "playChangeMusicVolume"
+}
+
+[node name="playDashRecharge" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 895721019,
+"name": "playDashReplenish"
+}
+
+[node name="playSeesawDamage" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 1741543648,
+"name": "playSeesawDamage"
+}

@@ -5,6 +5,10 @@ enum GameState {MENU, INGAME, GAME_OVER}
 @onready var play_music = $InitBank/MainBank/playMusic
 @onready var play_smash = $InitBank/MainBank/playSmash
 @onready var play_jump = $InitBank/MainBank/playJump
+@onready var play_music_change_volume = $InitBank/MainBank/playMusicChangeVolume
+@onready var play_sfx_change_volume = $InitBank/MainBank/playSFXChangeVolume
+
+
 
 const MAIN_MENU = preload("res://scene/main_menu.tscn")
 const OPTIONS_MENU = preload("res://scene/options_menu.tscn")
@@ -139,6 +143,7 @@ func _dash():
 	pass
 
 func _dash_replenish():
+	$InitBank/MainBank/playDashRecharge.post_event()
 	pass
 
 func _ground_pound_start():
@@ -150,9 +155,11 @@ func _ground_pound_land(distance: float):
 	pass
 
 func _place_whacker():
+	$InitBank/MainBank/playPlaceWacker.post_event()
 	pass
 	
 func _whacker_destroy():
+	$InitBank/MainBank/playWackerDestroyed.post_event()
 	pass
 
 	
@@ -161,9 +168,11 @@ func _powerup_collect():
 	pass
 
 func _seesaw_destroy():
+	$InitBank/MainBank/playSeesawDestroyed.post_event()
 	pass
 	
 func _seesaw_damage():
+	$InitBank/MainBank/playSeesawDamage.post_event()
 	pass
 
 func _menu_option_hover():
@@ -175,7 +184,12 @@ func _menu_option_press():
 
 func _change_music_volume(volume: int):
 	music_volume = volume
+	Wwise.set_rtpc_value("MusicVolume",volume,play_music_change_volume)
+	print_debug(volume)
+	$InitBank/MainBank/playMusicChangeVolume.post_event()
 
 func _change_sound_volume(volume: int):
 	sound_volume = volume
+	Wwise.set_rtpc_value("SFXVolume",volume,play_sfx_change_volume)
+	$InitBank/MainBank/playSFXChangeVolume.post_event()
 

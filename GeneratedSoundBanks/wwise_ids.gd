@@ -6,20 +6,34 @@ class EVENTS:
 	const ENEMYDEATH = 3249137159
 	const PLAYMUSIC = 417627684
 	const PLAYDEATHENEMY = 3583473913
+	const PLAYSEESAWDAMAGE = 1741543648
+	const PLAYSEESAWDESTROYED = 3408267172
 	const PLAYJUMP = 1717476791
 	const PLAYSTAR = 373361795
+	const PLAYDASHREPLENISH = 895721019
 	const PLAYSMASH = 1977629621
+	const PLAYCHANGEMUSICVOLUME = 3992794850
+	const PLAYWACKERPLACE = 3345699297
 	const PLAYTICK = 228694372
+	const PLAYWACKERDISAPPEAR = 2441673863
+	const PLAYCHANGESFXVOLUME = 3964040170
 
 	const _dict = {
 		"playDash": PLAYDASH,
 		"enemyDeath": ENEMYDEATH,
 		"playMusic": PLAYMUSIC,
 		"playDeathEnemy": PLAYDEATHENEMY,
+		"playSeesawDamage": PLAYSEESAWDAMAGE,
+		"playSeesawDestroyed": PLAYSEESAWDESTROYED,
 		"playJump": PLAYJUMP,
 		"playStar": PLAYSTAR,
+		"playDashReplenish": PLAYDASHREPLENISH,
 		"playSmash": PLAYSMASH,
-		"playTick": PLAYTICK
+		"playChangeMusicVolume": PLAYCHANGEMUSICVOLUME,
+		"playWackerPlace": PLAYWACKERPLACE,
+		"playTick": PLAYTICK,
+		"playWackerDisappear": PLAYWACKERDISAPPEAR,
+		"playChangeSFXVolume": PLAYCHANGESFXVOLUME
 	}
 
 class STATES:
@@ -123,6 +137,8 @@ class GAME_PARAMETERS:
 	const SS_AIR_FREEFALL = 3002758120
 	const SS_AIR_FURY = 1029930033
 	const SS_AIR_SIZE = 3074696722
+	const MUSICVOLUME = 2346531308
+	const SFXVOLUME = 988953028
 	const POSITIONFROMSEESAW = 1422592600
 
 	const _dict = {
@@ -137,6 +153,8 @@ class GAME_PARAMETERS:
 		"SS_Air_Freefall": SS_AIR_FREEFALL,
 		"SS_Air_Fury": SS_AIR_FURY,
 		"SS_Air_Size": SS_AIR_SIZE,
+		"MusicVolume": MUSICVOLUME,
+		"SFXVolume": SFXVOLUME,
 		"positionFromSeesaw": POSITIONFROMSEESAW
 	}
 
@@ -161,9 +179,13 @@ class BANKS:
 class BUSSES:
 
 	const MASTER_AUDIO_BUS = 3803692087
+	const SFX = 393239870
+	const MUSIC = 3991942870
 
 	const _dict = {
-		"Master Audio Bus": MASTER_AUDIO_BUS
+		"Master Audio Bus": MASTER_AUDIO_BUS,
+		"SFX": SFX,
+		"Music": MUSIC
 	}
 
 class AUX_BUSSES:
