@@ -164,6 +164,7 @@ func _enemy_died():
 func _star_collected():
 	seesaw_length += 3.0
 	star_collected_signal.emit()
+	score += 5000
 
 func set_sewsaw_lengths():
 	seesaw.length = seesaw_length
