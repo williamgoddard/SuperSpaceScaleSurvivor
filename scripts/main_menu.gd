@@ -51,9 +51,9 @@ func _process(delta):
 		selected_option -= 1
 		set_selection()
 	if Input.is_action_just_pressed("ui_select"):
+		menu_option_select_signal.emit()
 		match selected_option:
 			0:
 				start_game.emit()
 			2:
 				get_tree().quit()
-		menu_option_select_signal.emit()
