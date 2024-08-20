@@ -92,21 +92,17 @@ func _process(delta):
 		match selected_option:
 			2:
 				music_volume -= 10
-				menu_option_select_signal.emit()
 				music_slider.move_left()
 			3:
 				sound_volume -= 10
-				menu_option_select_signal.emit()
 				sound_slider.move_left()
 	if Input.is_action_just_pressed("ui_right"):
 		match selected_option:
 			2:
 				music_volume += 10
-				menu_option_select_signal.emit()
 				music_slider.move_right()
 			3:
 				sound_volume += 10
-				menu_option_select_signal.emit()
 				sound_slider.move_right()
 	if Input.is_action_just_pressed("ui_select"):
 		menu_option_select_signal.emit()
