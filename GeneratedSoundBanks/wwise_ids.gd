@@ -2,14 +2,24 @@ class_name AK
 
 class EVENTS:
 
+	const PLAYDASH = 1030691167
 	const ENEMYDEATH = 3249137159
 	const PLAYMUSIC = 417627684
 	const PLAYDEATHENEMY = 3583473913
+	const PLAYJUMP = 1717476791
+	const PLAYSTAR = 373361795
+	const PLAYSMASH = 1977629621
+	const PLAYTICK = 228694372
 
 	const _dict = {
+		"playDash": PLAYDASH,
 		"enemyDeath": ENEMYDEATH,
 		"playMusic": PLAYMUSIC,
-		"playDeathEnemy": PLAYDEATHENEMY
+		"playDeathEnemy": PLAYDEATHENEMY,
+		"playJump": PLAYJUMP,
+		"playStar": PLAYSTAR,
+		"playSmash": PLAYSMASH,
+		"playTick": PLAYTICK
 	}
 
 class STATES:
@@ -19,9 +29,9 @@ class STATES:
 
 		class STATE:
 			const BATTLE = 2937832959
-			const NONE = 748895195
 			const GAMEOVER = 4158285989
 			const MENU = 2607556080
+			const NONE = 748895195
 
 	class NEW_STATE_GROUP:
 		const GROUP = 2012657067
@@ -34,9 +44,9 @@ class STATES:
 			"GROUP": 4091656514,
 			"STATE": {
 				"battle": 2937832959,
-				"None": 748895195,
 				"gameover": 4158285989,
-				"menu": 2607556080
+				"menu": 2607556080,
+				"None": 748895195
 			}
 		},
 		"New_State_Group": {
@@ -53,47 +63,81 @@ class SWITCHES:
 		const GROUP = 1769415205
 
 		class SWITCH:
-			const HIGHHP = 372966353
 			const LOWHP = 624013381
+			const HIGHHP = 372966353
 			const MIDHP = 2947131305
+
+	class JUMP:
+		const GROUP = 3833651337
+
+		class SWITCH:
+			const SECOND = 3476314365
+			const THIRD = 931160808
+			const FIRST = 998496889
+
+	class POSITIONCRASHSEESAW:
+		const GROUP = 3094881801
+
+		class SWITCH:
+			const MID = 1182670505
+			const CLOSE = 1451272583
+			const FAR = 1183803292
 
 	const _dict = {
 		"HP": {
 			"GROUP": 1769415205,
 			"SWITCH": {
-				"highHP": 372966353,
 				"lowHP": 624013381,
-				"midHP": 2947131305
+				"highHP": 372966353,
+				"midHP": 2947131305,
+			}
+		},
+		"jump": {
+			"GROUP": 3833651337,
+			"SWITCH": {
+				"second": 3476314365,
+				"third": 931160808,
+				"first": 998496889,
+			}
+		},
+		"positionCrashSeesaw": {
+			"GROUP": 3094881801,
+			"SWITCH": {
+				"mid": 1182670505,
+				"close": 1451272583,
+				"far": 1183803292
 			}
 		}
 	}
 
 class GAME_PARAMETERS:
 
-	const SS_AIR_MONTH = 2648548617
 	const SS_AIR_TURBULENCE = 4160247818
-	const SS_AIR_SIZE = 3074696722
-	const SS_AIR_STORM = 3715662592
-	const SS_AIR_RPM = 822163944
+	const SS_AIR_MONTH = 2648548617
 	const SS_AIR_TIMEOFDAY = 3203397129
-	const SS_AIR_FREEFALL = 3002758120
-	const SS_AIR_FEAR = 1351367891
-	const SEESAWLENGTH = 41331145
-	const SS_AIR_FURY = 1029930033
+	const SS_AIR_RPM = 822163944
 	const SS_AIR_PRESENCE = 3847924954
+	const SEESAWLENGTH = 41331145
+	const SS_AIR_FEAR = 1351367891
+	const SS_AIR_STORM = 3715662592
+	const SS_AIR_FREEFALL = 3002758120
+	const SS_AIR_FURY = 1029930033
+	const SS_AIR_SIZE = 3074696722
+	const POSITIONFROMSEESAW = 1422592600
 
 	const _dict = {
-		"SS_Air_Month": SS_AIR_MONTH,
 		"SS_Air_Turbulence": SS_AIR_TURBULENCE,
-		"SS_Air_Size": SS_AIR_SIZE,
-		"SS_Air_Storm": SS_AIR_STORM,
-		"SS_Air_RPM": SS_AIR_RPM,
+		"SS_Air_Month": SS_AIR_MONTH,
 		"SS_Air_TimeOfDay": SS_AIR_TIMEOFDAY,
-		"SS_Air_Freefall": SS_AIR_FREEFALL,
-		"SS_Air_Fear": SS_AIR_FEAR,
+		"SS_Air_RPM": SS_AIR_RPM,
+		"SS_Air_Presence": SS_AIR_PRESENCE,
 		"seesawLength": SEESAWLENGTH,
+		"SS_Air_Fear": SS_AIR_FEAR,
+		"SS_Air_Storm": SS_AIR_STORM,
+		"SS_Air_Freefall": SS_AIR_FREEFALL,
 		"SS_Air_Fury": SS_AIR_FURY,
-		"SS_Air_Presence": SS_AIR_PRESENCE
+		"SS_Air_Size": SS_AIR_SIZE,
+		"positionFromSeesaw": POSITIONFROMSEESAW
 	}
 
 class TRIGGERS:

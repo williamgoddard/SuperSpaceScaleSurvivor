@@ -1,10 +1,14 @@
 Switch Group	ID	Name			Wwise Object Path	Notes
 	1769415205	HP			\Default Work Unit\HP	
+	3094881801	positionCrashSeesaw			\Default Work Unit\positionCrashSeesaw	
 
 Switch	ID	Name	Switch Group			Notes
 	372966353	highHP	HP			
 	624013381	lowHP	HP			
 	2947131305	midHP	HP			
+	1182670505	mid	positionCrashSeesaw			
+	1183803292	far	positionCrashSeesaw			
+	1451272583	close	positionCrashSeesaw			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	2012657067	New_State_Group			\Default Work Unit\New_State_Group	

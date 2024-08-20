@@ -1,7 +1,24 @@
 Event	ID	Name			Wwise Object Path	Notes
+	228694372	playTick			\Default Work Unit\playTick	
+	373361795	playStar			\Default Work Unit\playStar	
 	417627684	playMusic			\Default Work Unit\playMusic	
+	1030691167	playDash			\Default Work Unit\playDash	
+	1717476791	playJump			\Default Work Unit\playJump	
+	1977629621	playSmash			\Default Work Unit\playSmash	
 	3249137159	enemyDeath			\Default Work Unit\enemyDeath	
 	3583473913	playDeathEnemy			\Default Work Unit\playDeathEnemy	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	3094881801	positionCrashSeesaw			\Default Work Unit\positionCrashSeesaw	
+	3833651337	jump			\Default Work Unit\jump	
+
+Switch	ID	Name	Switch Group			Notes
+	1182670505	mid	positionCrashSeesaw			
+	1183803292	far	positionCrashSeesaw			
+	1451272583	close	positionCrashSeesaw			
+	931160808	third	jump			
+	998496889	first	jump			
+	3476314365	second	jump			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	4091656514	gamestate			\Default Work Unit\gamestate	
@@ -14,6 +31,7 @@ State	ID	Name	State Group			Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	41331145	seesawLength			\Default Work Unit\seesawLength	
+	1422592600	positionFromSeesaw			\Default Work Unit\positionFromSeesaw	
 
 Trigger	ID	Name			Wwise Object Path	Notes
 	3249137159	enemyDeath			\Default Work Unit\enemyDeath	
@@ -22,10 +40,26 @@ Effect plug-ins	ID	Name	Type				Notes
 	12170001	fast (Custom)	Wwise Time Stretch			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	5029509	starMelody-005	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-005_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-005		336852
 	68879301	bass3	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\bass3_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\bass3		576096
 	126713765	kick2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\kick2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\kick2		576096
+	250049794	smashFar	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\smashVariations-01-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\crashSwitch\smashFar		456480
+	296348856	jumpVariations-1-002	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\jumpVariations-1-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jumpVariations-1-002		460612
+	334676827	starMelody-002	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-002		358188
 	341278120	8bitmusic	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\8bitmusic_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameOver\8bitmusic\8bitmusic		2306144
+	414354460	starMelody-008	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-008_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-008		371240
+	414421052	starMelody-003	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-003		369112
+	481772441	starMelody-006	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-006_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-006		326404
+	545918777	starMelody-004	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-004		364104
+	553636175	SmashClose	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\smashVariations-01-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\crashSwitch\SmashClose		320848
 	602316853	8bitmusicalarm	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\8bitmusicalarm_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\8bitmusicalarm		384144
+	614091436	jumpVariations-1-003	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\jumpVariations-1-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jumpVariations-1-003		463820
+	764747603	SmashMid	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\smashVariations-01-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\crashSwitch\SmashMid		355960
 	793526793	8bitfunky	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\8bitfunky_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\menu\8bitfunky\8bitfunky		3074144
+	810093387	starMelody-001	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-001		317624
+	943067599	dash2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\dash2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\dash2		74164
 	982078910	8bitmonsterdeath	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\8bitmonsterdeath_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\8bitmonsterdeath\8bitmonsterdeath		384144
+	996626746	starMelody-007	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\starMelody-007_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-007		372264
+	997068033	jumpVariations-1-001	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\jumpVariations-1-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jumpVariations-1-001		360780
+	1038210787	tick	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\Android\SFX\721502__baggonotes__button_click1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\tick		88296
 

@@ -33,3 +33,34 @@ event = {
 "id": 3583473913,
 "name": "playDeathEnemy"
 }
+
+[node name="playDash" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 1030691167,
+"name": "playDash"
+}
+
+[node name="playJump" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 1717476791,
+"name": "playJump"
+}
+trigger_on = 1
+
+[node name="playSmash" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 1977629621,
+"name": "playSmash"
+}
+
+[node name="playStar" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 373361795,
+"name": "playStar"
+}
+
+[node name="playTick" type="AkEvent2D" parent="InitBank/MainBank"]
+event = {
+"id": 228694372,
+"name": "playTick"
+}

@@ -3,6 +3,8 @@ extends Node2D
 enum GameState {MENU, INGAME, GAME_OVER}
 @onready var enemy_death_event = $InitBank/MainBank/enemyDeathEvent
 @onready var play_music = $InitBank/MainBank/playMusic
+@onready var play_smash = $InitBank/MainBank/playSmash
+@onready var play_jump = $InitBank/MainBank/playJump
 
 
 const MAIN_MENU = preload("res://scene/main_menu.tscn")
@@ -34,6 +36,8 @@ func _ready():
 	current_scene = main_menu
 	main_menu.start_game.connect(_set_game)
 	add_child(main_menu)
+	main_menu.menu_option_hover_signal.connect(_menu_option_hover)
+	main_menu.menu_option_select_signal.connect(_menu_option_press)
 	game_state = GameState.MENU
 	Wwise.register_game_obj(self, "Program")
 	Wwise.post_event("enemyDeath", self)
@@ -81,12 +85,21 @@ func _set_seesaw_length(value : float):
 
 func _enemy_died():
 	$InitBank/MainBank/enemyDeathEvent.post_event()
-	pass
+	pass  
+	  
 
-func _jump():
+func _jump(jumps: int):
+	if (jumps == 1 ):
+		Wwise.set_switch("jump", "first",play_jump)
+	elif (jumps == 2 ):
+		Wwise.set_switch("jump", "second",play_jump)
+	elif (jumps == 3 ):
+		Wwise.set_switch("jump", "third",play_jump)
+	$InitBank/MainBank/playJump.post_event()
 	pass
 
 func _dash():
+	$InitBank/MainBank/playDash.post_event()
 	pass
 
 func _dash_replenish():
@@ -96,6 +109,8 @@ func _ground_pound_start():
 	pass
 
 func _ground_pound_land(distance: float):
+	Wwise.set_rtpc_value("positionCrashSeesaw",distance,play_smash)
+	$InitBank/MainBank/playSmash.post_event()
 	pass
 
 func _place_whacker():
@@ -105,6 +120,7 @@ func _whacker_destroy():
 	pass
 	
 func _powerup_collect():
+	$InitBank/MainBank/playStar.post_event()
 	pass
 
 func _seesaw_destroy():
@@ -114,5 +130,6 @@ func _menu_option_hover():
 	pass
 
 func _menu_option_press():
+	$InitBank/MainBank/playTick.post_event()
 	pass
 
