@@ -13,15 +13,19 @@ position = Vector2(960, 540)
 texture = ExtResource("1_t1liu")
 
 [node name="PlayButton" parent="." instance=ExtResource("2_y53q0")]
-position = Vector2(670, 490)
+position = Vector2(670, 417)
 label_text = "PLAY"
 
 [node name="OptionsButton" parent="." instance=ExtResource("2_y53q0")]
-position = Vector2(670, 640)
+position = Vector2(670, 567)
 label_text = "OPTIONS"
 
+[node name="TutorialButton" parent="." instance=ExtResource("2_y53q0")]
+position = Vector2(670, 717)
+label_text = "TUTORIAL "
+
 [node name="ExitButton" parent="." instance=ExtResource("2_y53q0")]
-position = Vector2(670, 790)
+position = Vector2(670, 867)
 label_text = "EXIT"
 
 [node name="Ssss" type="Sprite2D" parent="."]
