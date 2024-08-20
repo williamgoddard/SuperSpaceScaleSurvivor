@@ -150,9 +150,23 @@ func _ground_pound_start():
 	pass
 
 func _ground_pound_land(distance: float):
-	Wwise.set_rtpc_value("positionCrashSeesaw",distance,play_smash)
+	#Wwise.set_rtpc_value("positionCrashSeesaw",distance,null)
+	#print_debug(Wwise.get_rtpc_value("positionCrashSeesaw",play_smash))
+	#if (distance < 70):
+		#Wwise.set_switch("HP","far",$InitBank/MainBank/playSmash)
+		#print_debug("Distance big")
+	#if (distance <30):
+		#Wwise.set_switch("HP","mid", $InitBank/MainBank/playSmash)
+		#print_debug("Distance mid")
+	#else:
+		#print_debug("Distance small")
+		#Wwise.set_switch("HP","close", $InitBank/MainBank/playSmash)
+		
+		
+		
+	#print_debug(distance)
 	$InitBank/MainBank/playSmash.post_event()
-	pass
+	#pass
 
 func _place_whacker():
 	$InitBank/MainBank/playPlaceWacker.post_event()

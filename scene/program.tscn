@@ -45,7 +45,6 @@ event = {
 "id": 1717476791,
 "name": "playJump"
 }
-trigger_on = 1
 
 [node name="playSmash" type="AkEvent2D" parent="InitBank/MainBank"]
 event = {

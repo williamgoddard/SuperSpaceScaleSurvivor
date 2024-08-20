@@ -53,27 +53,25 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	42926617	dash6	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\dash6_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\dash6		288972
 	68879301	bass3	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\bass3_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\bass3		576096
 	126713765	kick2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\kick2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\kick2		576096
-	140425559	jump1	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\jumpLast_02F4EC95.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jump1		16624
-	174491890	jump2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\jumpLast_DE43D018.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jump2		18396
-	180154594	uiPopMusic	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\540568__eminyildirim__ui-pop-up_561E67F8.wem		\Actor-Mixer Hierarchy\Default Work Unit\uiPopMusic		4100
-	250049794	smashFar	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\smashVariations-01-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\crashSwitch\smashFar		456480
-	283892671	jump3	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\jumpLast_B6D85E0E.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jump3		65616
+	140425559	jump1	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\jumpLast_354C6C33.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jump1		16624
+	174491890	jump2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\jumpLast_3ECB2C17.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jump2		18396
+	180154594	uiPopMusic	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\540568__eminyildirim__ui-pop-up_038AFE60.wem		\Actor-Mixer Hierarchy\Default Work Unit\uiPopMusic		4100
+	283892671	jump3	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\jumpLast_DC1866FE.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump\jump3		65616
 	334676827	starMelody-002	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-002		358188
 	341278120	8bitmusic	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\8bitmusic_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameOver\8bitmusic\8bitmusic		2306144
 	414354460	starMelody-008	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-008_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-008		371240
 	414421052	starMelody-003	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-003		369112
-	438922525	seeSawDamage2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\seeSawDamage2_D6B4C066.wem		\Actor-Mixer Hierarchy\Default Work Unit\seeSawDamage2		346352
+	438922525	seeSawDamage2	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\seeSawDamage2_2EC8A0FF.wem		\Actor-Mixer Hierarchy\Default Work Unit\seeSawDamage2		346352
 	481772441	starMelody-006	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-006_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-006		326404
-	532241557	disappearWacker	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\disappearWacker_7FD0D6BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\disappearWacker		306728
+	532241557	disappearWacker	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\disappearWacker_F66FB518.wem		\Actor-Mixer Hierarchy\Default Work Unit\disappearWacker		306728
 	545918777	starMelody-004	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-004_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-004		364104
-	553636175	SmashClose	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\smashVariations-01-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\crashSwitch\SmashClose		320848
 	602316853	8bitmusicalarm	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\8bitmusicalarm_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\gameplay\battle\8bitmusicalarm		384144
-	643859041	placeWacker	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\placeWacker_1F34D407.wem		\Actor-Mixer Hierarchy\Default Work Unit\placeWacker		89216
+	643859041	placeWacker	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\placeWacker_A5F718E5.wem		\Actor-Mixer Hierarchy\Default Work Unit\placeWacker		89216
 	764747603	SmashMid	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\smashVariations-01-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\crashSwitch\SmashMid		355960
 	783401159	dashRecharge	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\dashRecharge_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\dashRecharge		163424
 	793526793	8bitfunky	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\8bitfunky_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\music\menu\8bitfunky\8bitfunky		3074144
 	810093387	starMelody-001	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-001		317624
-	948787872	seesawDestroyed	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\destroyed1_C78715E9.wem		\Actor-Mixer Hierarchy\Default Work Unit\seesawDestroyed		354604
+	948787872	seesawDestroyed	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\destroyed1_8C3FF615.wem		\Actor-Mixer Hierarchy\Default Work Unit\seesawDestroyed		354604
 	982078910	8bitmonsterdeath	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\8bitmonsterdeath_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\8bitmonsterdeath\8bitmonsterdeath		384144
 	996626746	starMelody-007	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\starMelody-007_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\starMelody\starMelody-007		372264
 	1038210787	tick	C:\Users\bofaa\Documents\WwiseProjects\GMTK2024Wwise\.cache\iOS\SFX\721502__baggonotes__button_click1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\tick		88296

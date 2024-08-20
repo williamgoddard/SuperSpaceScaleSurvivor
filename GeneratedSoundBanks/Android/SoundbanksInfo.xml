@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{DF8AA470-1CF6-B581-4CE3-B4C30D468D5C}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B3EF907D-8719-147E-4325-A7FB9907A74B}">
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
 			<Plugins>
@@ -208,7 +208,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F3E10418-A026-DF22-6130-53009ED530FA}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{717F48F5-0907-F6B6-CD69-1D82B518CEAB}">
 			<ShortName>Main</ShortName>
 			<Path>3161908922.bnk</Path>
 			<Media>
@@ -230,23 +230,19 @@
 				</File>
 				<File Id="140425559" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>jumpLast.wav</ShortName>
-					<CachePath>SFX/jumpLast_02F4EC95.wem</CachePath>
+					<CachePath>SFX/jumpLast_354C6C33.wem</CachePath>
 				</File>
 				<File Id="174491890" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>jumpLast.wav</ShortName>
-					<CachePath>SFX/jumpLast_DE43D018.wem</CachePath>
+					<CachePath>SFX/jumpLast_3ECB2C17.wem</CachePath>
 				</File>
 				<File Id="180154594" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>540568__eminyildirim__ui-pop-up.wav</ShortName>
-					<CachePath>SFX/540568__eminyildirim__ui-pop-up_561E67F8.wem</CachePath>
-				</File>
-				<File Id="250049794" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>smashVariations-01-002.wav</ShortName>
-					<CachePath>SFX/smashVariations-01-002_818F3B66.wem</CachePath>
+					<CachePath>SFX/540568__eminyildirim__ui-pop-up_038AFE60.wem</CachePath>
 				</File>
 				<File Id="283892671" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>jumpLast.wav</ShortName>
-					<CachePath>SFX/jumpLast_B6D85E0E.wem</CachePath>
+					<CachePath>SFX/jumpLast_DC1866FE.wem</CachePath>
 				</File>
 				<File Id="334676827" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>starMelody-002.wav</ShortName>
@@ -266,7 +262,7 @@
 				</File>
 				<File Id="438922525" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>seeSawDamage2.wav</ShortName>
-					<CachePath>SFX/seeSawDamage2_D6B4C066.wem</CachePath>
+					<CachePath>SFX/seeSawDamage2_2EC8A0FF.wem</CachePath>
 				</File>
 				<File Id="481772441" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>starMelody-006.wav</ShortName>
@@ -274,15 +270,11 @@
 				</File>
 				<File Id="532241557" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>disappearWacker.wav</ShortName>
-					<CachePath>SFX/disappearWacker_7FD0D6BA.wem</CachePath>
+					<CachePath>SFX/disappearWacker_F66FB518.wem</CachePath>
 				</File>
 				<File Id="545918777" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>starMelody-004.wav</ShortName>
 					<CachePath>SFX/starMelody-004_818F3B66.wem</CachePath>
-				</File>
-				<File Id="553636175" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>smashVariations-01-003.wav</ShortName>
-					<CachePath>SFX/smashVariations-01-003_818F3B66.wem</CachePath>
 				</File>
 				<File Id="602316853" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>8bitmusicalarm.wav</ShortName>
@@ -290,7 +282,7 @@
 				</File>
 				<File Id="643859041" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>placeWacker.wav</ShortName>
-					<CachePath>SFX/placeWacker_1F34D407.wem</CachePath>
+					<CachePath>SFX/placeWacker_A5F718E5.wem</CachePath>
 				</File>
 				<File Id="764747603" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>smashVariations-01-001.wav</ShortName>
@@ -310,7 +302,7 @@
 				</File>
 				<File Id="948787872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>destroyed1.wav</ShortName>
-					<CachePath>SFX/destroyed1_C78715E9.wem</CachePath>
+					<CachePath>SFX/destroyed1_8C3FF615.wem</CachePath>
 				</File>
 				<File Id="982078910" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>8bitmonsterdeath.wav</ShortName>
@@ -424,26 +416,9 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1977629621" Name="playSmash">
-					<SwitchContainers>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3094881801" Id="1183803292"/>
-							<MediaRefs>
-								<MediaRef Id="250049794"/>
-							</MediaRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3094881801" Id="1451272583"/>
-							<MediaRefs>
-								<MediaRef Id="553636175"/>
-							</MediaRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="3094881801" Id="1182670505" Default="true"/>
-							<MediaRefs>
-								<MediaRef Id="764747603"/>
-							</MediaRefs>
-						</SwitchContainer>
-					</SwitchContainers>
+					<MediaRefs>
+						<MediaRef Id="764747603"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="373361795" Name="playStar">
 					<MediaRefs>
@@ -519,5 +494,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8EAC53C2-01A9-2622-9E9D-9543A8D65BE0}</FileHash>
+	<FileHash>{04E51E28-B309-6967-819D-02F3FAF67176}</FileHash>
 </SoundBanksInfo>
