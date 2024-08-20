@@ -95,7 +95,7 @@ func _dash_replenish():
 func _ground_pound_start():
 	pass
 
-func _ground_pound_land():
+func _ground_pound_land(distance: float):
 	pass
 
 func _place_whacker():

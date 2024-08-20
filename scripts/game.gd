@@ -10,7 +10,7 @@ signal dash_signal()
 signal dash_replenish_signal()
 signal star_collected_signal()
 signal ground_pound_start_signal()
-signal ground_pound_land_signal()
+signal ground_pound_land_signal(distance: float)
 signal place_whacker_signal()
 signal whacker_destroy_signal()
 signal seesaw_destroy_signal()
@@ -149,11 +149,13 @@ func _ground_pound_start():
 	ground_pound_start_signal.emit()
 
 func _ground_pound():
-	ground_pound_land_signal.emit()
 	var player_position : float = (player.position.x - 3000) / 48
 	var player_position_fraction := player_position / seesaw_length
+	if abs(player_position_fraction) > 1:
+		player_position_fraction = sign(player_position_fraction)
 	rotation_speed = (sign(player_position_fraction) * MAX_ROTATION_SPEED / 2) + (player_position_fraction * MAX_ROTATION_SPEED * 12)
 	ground_pound_timer = 0.5
+	ground_pound_land_signal.emit(abs(player_position_fraction) * 100)
 	
 func _enemy_died():
 	score += abs(floor(rotation_speed))
