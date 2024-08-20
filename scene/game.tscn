@@ -78,13 +78,6 @@ scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="spawn_enemy" type="Button" parent="CanvasLayer"]
-offset_left = 59.0
-offset_top = 46.0
-offset_right = 177.0
-offset_bottom = 77.0
-text = "spawn_enemy"
-
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
 offset_left = 1115.0
 offset_top = 10.0
@@ -94,27 +87,6 @@ theme_override_fonts/font = ExtResource("8_3b82y")
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
-
-[node name="increase_length" type="Button" parent="CanvasLayer"]
-offset_left = 187.0
-offset_top = 47.0
-offset_right = 305.0
-offset_bottom = 78.0
-text = "+ length"
-
-[node name="decrease_length" type="Button" parent="CanvasLayer"]
-offset_left = 308.0
-offset_top = 46.0
-offset_right = 426.0
-offset_bottom = 77.0
-text = "- length"
-
-[node name="spawn_power_up" type="Button" parent="CanvasLayer"]
-offset_left = 66.7216
-offset_top = 84.0225
-offset_right = 221.722
-offset_bottom = 122.023
-text = "spawn power up"
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(2136, 0)
@@ -150,9 +122,5 @@ shape = SubResource("CircleShape2D_w728u")
 
 [connection signal="enemy_died" from="Enemies_spawn" to="." method="_enemy_died"]
 [connection signal="ground_pound_hit" from="Player" to="." method="_ground_pound"]
-[connection signal="pressed" from="CanvasLayer/spawn_enemy" to="Enemies_spawn" method="_on_spawn_enemy_pressed"]
-[connection signal="pressed" from="CanvasLayer/increase_length" to="." method="_on_increase_length_pressed"]
-[connection signal="pressed" from="CanvasLayer/decrease_length" to="." method="_on_decrease_length_pressed"]
-[connection signal="pressed" from="CanvasLayer/spawn_power_up" to="Enemies_spawn" method="_on_spawn_power_up_pressed"]
 [connection signal="star_collected" from="Power_UP_Spawner" to="." method="_star_collected"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
