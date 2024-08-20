@@ -72,6 +72,7 @@ func _set_game():
 	game_scene.whacker_destroy_signal.connect(_whacker_destroy)
 	game_scene.star_collected_signal.connect(_powerup_collect)
 	game_scene.seesaw_destroy_signal.connect(_seesaw_destroy)
+	game_scene.seesaw_damage_signal.connect(_seesaw_damage)
 	game_scene.menu_option_hover_signal.connect(_menu_option_hover)
 	game_scene.menu_option_select_signal.connect(_menu_option_press)
 	add_child(game_scene)
@@ -118,12 +119,16 @@ func _place_whacker():
 	
 func _whacker_destroy():
 	pass
+
 	
 func _powerup_collect():
 	$InitBank/MainBank/playStar.post_event()
 	pass
 
 func _seesaw_destroy():
+	pass
+	
+func _seesaw_damage():
 	pass
 
 func _menu_option_hover():

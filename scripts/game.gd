@@ -14,6 +14,7 @@ signal ground_pound_land_signal(distance: float)
 signal place_whacker_signal()
 signal whacker_destroy_signal()
 signal seesaw_destroy_signal()
+signal seesaw_damage_signal()
 signal menu_option_hover_signal()
 signal menu_option_select_signal()
 
@@ -149,7 +150,6 @@ func _process(delta):
 				time_until_next_enemy = (6 - (5 * (log(game_time_minutes+1) / log(10)))) + randf_range(-0.5, 0.5)
 			else:
 				time_until_next_enemy = randf_range(0.1, 0.5)
-			print("time until next enemy: " + str(time_until_next_enemy))
 
 func _ground_pound_start():
 	ground_pound_start_signal.emit()
@@ -237,3 +237,5 @@ func check_if_destroyed():
 		gpu_particles_2d.emitting = false
 		destroyed = true
 		seesaw_destroy_signal.emit()
+	elif not destroyed:
+		seesaw_damage_signal.emit()
