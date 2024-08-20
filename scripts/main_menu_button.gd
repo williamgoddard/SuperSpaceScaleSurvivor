@@ -11,6 +11,9 @@ extends Node2D
 
 func _ready():
 	label.text = label_text
+	
+func _process(_delta):
+	label.text = label_text
 
 func select():
 	sprite.modulate = text_colour

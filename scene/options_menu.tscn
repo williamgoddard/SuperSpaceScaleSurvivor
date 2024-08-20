@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl84leh6bx3rs"]
+
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_tkv71"]
+[ext_resource type="Texture2D" uid="uid://bebrw3ytmobb4" path="res://assets/sprites/menu_background.png" id="2_fjfn6"]
+[ext_resource type="PackedScene" uid="uid://de5hpfhcp1cge" path="res://scene/main_menu_button.tscn" id="3_w7s5c"]
+[ext_resource type="PackedScene" uid="uid://iftqjns1hagu" path="res://scene/menu_slider.tscn" id="4_fc6n2"]
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_tkv71")
+
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_fjfn6")
+
+[node name="BackButton" parent="." instance=ExtResource("3_w7s5c")]
+position = Vector2(521, 150)
+label_text = "BACK"
+
+[node name="FullscreenButton" parent="." instance=ExtResource("3_w7s5c")]
+position = Vector2(521, 300)
+label_text = "WINDOWED"
+
+[node name="MusicSlider" parent="." instance=ExtResource("4_fc6n2")]
+position = Vector2(521, 450)
+label_text = "MUSIC"
+
+[node name="SoundSlider" parent="." instance=ExtResource("4_fc6n2")]
+position = Vector2(521, 750)
+label_text = "SFX"

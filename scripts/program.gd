@@ -6,8 +6,8 @@ enum GameState {MENU, INGAME, GAME_OVER}
 @onready var play_smash = $InitBank/MainBank/playSmash
 @onready var play_jump = $InitBank/MainBank/playJump
 
-
 const MAIN_MENU = preload("res://scene/main_menu.tscn")
+const OPTIONS_MENU = preload("res://scene/options_menu.tscn")
 const GAME = preload("res://scene/game.tscn")
 
 var current_scene : Node
@@ -28,31 +28,62 @@ var game_state := GameState.MENU:
 			Wwise.set_state("gamestate","battle")
 		elif (game_state == GameState.GAME_OVER):
 			Wwise.set_state("gamestate", "gameover")
-		
+			
+
+var music_volume := 100:
+	set(value):
+		if value < 0:
+			music_volume = 0
+		elif value > 100:
+			music_volume = 100
+		else:
+			music_volume = value
+			
+var sound_volume := 100:
+	set(value):
+		if value < 0:
+			sound_volume = 0
+		elif value > 100:
+			sound_volume = 100
+		else:
+			sound_volume = value
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var main_menu = MAIN_MENU.instantiate()
 	current_scene = main_menu
 	main_menu.start_game.connect(_set_game)
-	add_child(main_menu)
+	main_menu.options_menu.connect(_set_options_menu)
 	main_menu.menu_option_hover_signal.connect(_menu_option_hover)
 	main_menu.menu_option_select_signal.connect(_menu_option_press)
+	add_child(main_menu)
 	game_state = GameState.MENU
 	Wwise.register_game_obj(self, "Program")
 	Wwise.post_event("enemyDeath", self)
-	
 
 func _set_main_menu():
 	current_scene.queue_free()
 	var main_menu = MAIN_MENU.instantiate()
 	current_scene = main_menu
 	main_menu.start_game.connect(_set_game)
+	main_menu.options_menu.connect(_set_options_menu)
 	main_menu.menu_option_hover_signal.connect(_menu_option_hover)
 	main_menu.menu_option_select_signal.connect(_menu_option_press)
 	add_child(main_menu)
 	game_state = GameState.MENU
 	
+func _set_options_menu():
+	current_scene.queue_free()
+	var options_menu = OPTIONS_MENU.instantiate()
+	current_scene = options_menu
+	options_menu.return_to_menu.connect(_set_main_menu)
+	options_menu.menu_option_hover_signal.connect(_menu_option_hover)
+	options_menu.menu_option_select_signal.connect(_menu_option_press)
+	options_menu.change_music_volume.connect(_change_music_volume)
+	options_menu.change_sound_volume.connect(_change_sound_volume)
+	options_menu.set_music_volume(music_volume)
+	options_menu.set_sound_volume(sound_volume)
+	add_child(options_menu)
 
 func _set_game():
 	current_scene.queue_free()
@@ -136,5 +167,13 @@ func _menu_option_hover():
 
 func _menu_option_press():
 	$InitBank/MainBank/playTick.post_event()
+	pass
+
+func _change_music_volume(volume: int):
+	music_volume = volume
+	pass
+
+func _change_sound_volume(volume: int):
+	sound_volume = volume
 	pass
 

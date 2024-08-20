@@ -1,6 +1,7 @@
 extends Node2D
 
 signal start_game()
+signal options_menu()
 signal menu_option_hover_signal()
 signal menu_option_select_signal()
 
@@ -55,5 +56,7 @@ func _process(delta):
 		match selected_option:
 			0:
 				start_game.emit()
+			1:
+				options_menu.emit()
 			2:
 				get_tree().quit()
