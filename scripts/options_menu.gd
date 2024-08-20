@@ -43,6 +43,13 @@ var selected_option := 0:
 func _ready():
 	music_slider.set_slider_position(music_volume / 10)
 	sound_slider.set_slider_position(sound_volume / 10)
+	match DisplayServer.window_get_mode():
+		DisplayServer.WINDOW_MODE_WINDOWED:
+			fullscreen_button.label_text = "WINDOWED"
+		DisplayServer.WINDOW_MODE_FULLSCREEN:
+			fullscreen_button.label_text = "FULLSCREEN"
+		_:
+			fullscreen_button.label_text = "FULLSCREEN"
 	set_selection()
 
 func set_selection():
@@ -107,7 +114,16 @@ func _process(delta):
 			0:
 				return_to_menu.emit()
 			1:
-				pass
+				match DisplayServer.window_get_mode():
+					DisplayServer.WINDOW_MODE_WINDOWED:
+						DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+						fullscreen_button.label_text = "FULLSCREEN"
+					DisplayServer.WINDOW_MODE_FULLSCREEN:
+						DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+						fullscreen_button.label_text = "WINDOWED"
+					_:
+						DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+						fullscreen_button.label_text = "WINDOWED"
 
 func set_music_volume(volume: int):
 	music_volume = volume

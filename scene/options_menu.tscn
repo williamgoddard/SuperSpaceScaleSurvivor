@@ -13,17 +13,17 @@ position = Vector2(960, 540)
 texture = ExtResource("2_fjfn6")
 
 [node name="BackButton" parent="." instance=ExtResource("3_w7s5c")]
-position = Vector2(521, 150)
+position = Vector2(505, 150)
 label_text = "BACK"
 
 [node name="FullscreenButton" parent="." instance=ExtResource("3_w7s5c")]
-position = Vector2(521, 300)
+position = Vector2(505, 300)
 label_text = "WINDOWED"
 
 [node name="MusicSlider" parent="." instance=ExtResource("4_fc6n2")]
-position = Vector2(521, 450)
+position = Vector2(505, 450)
 label_text = "MUSIC"
 
 [node name="SoundSlider" parent="." instance=ExtResource("4_fc6n2")]
-position = Vector2(521, 750)
+position = Vector2(505, 750)
 label_text = "SFX"
