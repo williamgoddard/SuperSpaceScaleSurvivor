@@ -61,6 +61,10 @@ func _ready():
 	Wwise.register_game_obj(self, "Program")
 	Wwise.post_event("enemyDeath", self)
 
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+
 func _set_main_menu():
 	current_scene.queue_free()
 	var main_menu = MAIN_MENU.instantiate()
