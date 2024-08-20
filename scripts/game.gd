@@ -184,7 +184,6 @@ func _on_player_dash_signal():
 func _on_player_dash_replenish_signal():
 	dash_replenish_signal.emit()
 
-
 func _on_area_2d_body_entered(body):
 	print("look at this vik>>>> " + str(body.name))
 	if "Enemy" in body.name:
