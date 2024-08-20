@@ -184,12 +184,12 @@ func _menu_option_press():
 
 func _change_music_volume(volume: int):
 	music_volume = volume
-	Wwise.set_rtpc_value("MusicVolume",volume,play_music_change_volume)
-	print_debug(volume)
+	Wwise.set_rtpc_value("MusicVolume",music_volume,null)
+	print(Wwise.get_rtpc_value("MusicVolume",play_music_change_volume))
 	$InitBank/MainBank/playMusicChangeVolume.post_event()
 
 func _change_sound_volume(volume: int):
 	sound_volume = volume
-	Wwise.set_rtpc_value("SFXVolume",volume,play_sfx_change_volume)
+	Wwise.set_rtpc_value("SFXVolume",volume,null)
 	$InitBank/MainBank/playSFXChangeVolume.post_event()
 
