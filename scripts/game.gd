@@ -186,6 +186,7 @@ func _on_player_dash_replenish_signal():
 
 
 func _on_area_2d_body_entered(body):
+	print("look at this vik>>>> " + str(body.name))
 	if "Enemy" in body.name:
 		body.die()
 		seesaw_damaged(1.0)
@@ -194,12 +195,15 @@ func _on_area_2d_body_entered(body):
 func seesaw_damaged(damage: float):
 	check_if_destroyed()
 	seesaw_length -= damage
+	
+var destroyed := false
 
 func check_if_destroyed():
 	print(seesaw_length)
-	if seesaw_length <= 0.5:
+	if seesaw_length <= 0.5 and not destroyed:
 		seesaw.destroy()
 		offscreen_seesaw.destroy()
 		gpu_particles_2d.emitting = true
 		await get_tree(). create_timer(2.0). timeout
 		gpu_particles_2d.emitting = false
+		destroyed = true

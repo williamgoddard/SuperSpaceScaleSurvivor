@@ -130,10 +130,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgoov"]
-radius = 20.0062
+radius = 33.1361
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vc2tf"]
-radius = 18.1108
+radius = 33.0151
 
 [sub_resource type="Curve" id="Curve_78vtf"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.186813), 0.0, 0.0, 0, 0, Vector2(1, 0.879121), 0.0, 0.0, 0, 0]
