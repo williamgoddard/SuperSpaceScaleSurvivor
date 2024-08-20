@@ -1,6 +1,8 @@
 extends Node2D
 
 signal start_game()
+signal menu_option_hover_signal()
+signal menu_option_select_signal()
 
 @onready var play_button = $PlayButton
 @onready var options_button = $OptionsButton
@@ -39,6 +41,7 @@ func set_selection():
 			play_button.deselect()
 			options_button.deselect()
 			exit_button.deselect()
+	menu_option_hover_signal.emit()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
@@ -53,3 +56,4 @@ func _process(delta):
 				start_game.emit()
 			2:
 				get_tree().quit()
+		menu_option_select_signal.emit()

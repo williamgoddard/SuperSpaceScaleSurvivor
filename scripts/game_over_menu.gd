@@ -2,6 +2,8 @@ extends CanvasLayer
 
 signal end_game()
 signal retry_game()
+signal menu_option_hover_signal()
+signal menu_option_select_signal()
 
 @onready var retry_button = $RetryButton
 @onready var main_menu_button = $MainMenuButton
@@ -36,6 +38,7 @@ func set_selection():
 		_:
 			retry_button.deselect()
 			main_menu_button.deselect()
+	menu_option_hover_signal.emit()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
@@ -45,6 +48,7 @@ func _process(delta):
 		selected_option -= 1
 		set_selection()
 	if Input.is_action_just_pressed("ui_select"):
+		menu_option_select_signal.emit()
 		match selected_option:
 			0:
 				retry_game.emit()

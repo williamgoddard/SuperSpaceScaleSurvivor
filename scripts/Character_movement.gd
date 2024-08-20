@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal jump_signal()
 signal dash_signal()
 signal dash_replenish_signal()
+signal ground_pound_start()
 signal ground_pound_hit()
 
 const MAX_SPEED = 500.0
@@ -151,6 +152,7 @@ func start_dash(direction):
 	velocity.x = dash_direction * DASH_SPEED
 
 func start_ground_pound():
+	ground_pound_start.emit()
 	is_ground_pounding = true
 	velocity.x = 0
 	velocity.y = GROUND_POUND_SPEED

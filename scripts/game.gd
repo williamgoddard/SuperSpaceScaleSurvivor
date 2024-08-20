@@ -9,6 +9,13 @@ signal jump_signal()
 signal dash_signal()
 signal dash_replenish_signal()
 signal star_collected_signal()
+signal ground_pound_start_signal()
+signal ground_pound_land_signal()
+signal place_whacker_signal()
+signal whacker_destroy_signal()
+signal seesaw_destroy_signal()
+signal menu_option_hover_signal()
+signal menu_option_select_signal()
 
 const WHACKER = preload("res://scene/whacker.tscn")
 const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
@@ -117,6 +124,8 @@ func _process(delta):
 				old_whacker.destroy()
 			whackers.push_back(whacker)
 			seesaw.add_child(whacker)
+			whacker.whacker_destroy_signal.connect(_on_whacker_destroy_signal)
+			place_whacker_signal.emit()
 			
 	var whackers_to_remove : Array[Whacker] = []
 	for whacker in whackers:
@@ -136,7 +145,11 @@ func _process(delta):
 				time_until_next_enemy = randf_range(0.1, 1)
 			print("time until next enemy: " + str(time_until_next_enemy))
 
+func _ground_pound_start():
+	ground_pound_start_signal.emit()
+
 func _ground_pound():
+	ground_pound_land_signal.emit()
 	var player_position : float = (player.position.x - 3000) / 48
 	var player_position_fraction := player_position / seesaw_length
 	rotation_speed = (sign(player_position_fraction) * MAX_ROTATION_SPEED / 2) + (player_position_fraction * MAX_ROTATION_SPEED * 12)
@@ -183,6 +196,15 @@ func _on_player_dash_signal():
 
 func _on_player_dash_replenish_signal():
 	dash_replenish_signal.emit()
+	
+func _on_whacker_destroy_signal():
+	whacker_destroy_signal.emit()
+	
+func _on_menu_option_hover_signal():
+	menu_option_hover_signal.emit()
+	
+func _on_menu_option_select_signal():
+	menu_option_select_signal.emit()
 
 func _on_area_2d_body_entered(body):
 	if body is BasicEnemy:
@@ -205,3 +227,4 @@ func check_if_destroyed():
 		await get_tree(). create_timer(2.0). timeout
 		gpu_particles_2d.emitting = false
 		destroyed = true
+		seesaw_destroy_signal.emit()

@@ -44,6 +44,8 @@ func _set_main_menu():
 	var main_menu = MAIN_MENU.instantiate()
 	current_scene = main_menu
 	main_menu.start_game.connect(_set_game)
+	main_menu.menu_option_hover_signal.connect(_menu_option_hover)
+	main_menu.menu_option_select_signal.connect(_menu_option_press)
 	add_child(main_menu)
 	game_state = GameState.MENU
 	
@@ -60,6 +62,14 @@ func _set_game():
 	game_scene.jump_signal.connect(_jump)
 	game_scene.dash_signal.connect(_dash)
 	game_scene.dash_replenish_signal.connect(_dash_replenish)
+	game_scene.ground_pound_start_signal.connect(_ground_pound_start)
+	game_scene.ground_pound_land_signal.connect(_ground_pound_land)
+	game_scene.place_whacker_signal.connect(_place_whacker)
+	game_scene.whacker_destroy_signal.connect(_whacker_destroy)
+	game_scene.star_collected_signal.connect(_powerup_collect)
+	game_scene.seesaw_destroy_signal.connect(_seesaw_destroy)
+	game_scene.menu_option_hover_signal.connect(_menu_option_hover)
+	game_scene.menu_option_select_signal.connect(_menu_option_press)
 	add_child(game_scene)
 	game_state = GameState.INGAME
 
@@ -96,8 +106,8 @@ func _whacker_destroy():
 	
 func _powerup_collect():
 	pass
-	
-func _powerup_sparkle():
+
+func _seesaw_destroy():
 	pass
 
 func _menu_option_hover():
