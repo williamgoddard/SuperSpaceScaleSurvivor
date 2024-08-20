@@ -33,7 +33,7 @@ size = Vector2(775.001, 6.16846)
 size = Vector2(864.997, 21.1267)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w728u"]
-radius = 31.0644
+radius = 33.0
 
 [node name="game" type="Node2D"]
 rotation = 0.000337396
@@ -115,7 +115,8 @@ centre_node = NodePath("../Seesaw")
 star_collector_node = NodePath("../Seesaw/Fake_player")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_w728u")

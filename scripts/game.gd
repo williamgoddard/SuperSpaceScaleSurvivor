@@ -185,8 +185,7 @@ func _on_player_dash_replenish_signal():
 	dash_replenish_signal.emit()
 
 func _on_area_2d_body_entered(body):
-	print("look at this vik>>>> " + str(body.name))
-	if "Enemy" in body.name:
+	if body is BasicEnemy:
 		body.die()
 		seesaw_damaged(1.0)
 	pass # Replace with function body.
