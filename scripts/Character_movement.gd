@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal jump_signal()
+signal jump_signal(jumps: int)
 signal dash_signal()
 signal dash_replenish_signal()
 signal ground_pound_start()
@@ -158,7 +158,7 @@ func start_ground_pound():
 	velocity.y = GROUND_POUND_SPEED
 
 func start_jump():
-	jump_signal.emit()
+	jump_signal.emit(current_jumps + 1)
 	velocity.y = JUMP_VELOCITY
 	current_jumps += 1
 	airtime = COYOTE_TIME

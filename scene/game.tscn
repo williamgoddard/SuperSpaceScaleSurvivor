@@ -122,7 +122,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_w728u")
 
 [connection signal="enemy_died" from="Enemies_spawn" to="." method="_enemy_died"]
+[connection signal="dash_replenish_signal" from="Player" to="." method="_on_player_dash_replenish_signal"]
+[connection signal="dash_signal" from="Player" to="." method="_on_player_dash_signal"]
 [connection signal="ground_pound_hit" from="Player" to="." method="_ground_pound"]
 [connection signal="ground_pound_start" from="Player" to="." method="_ground_pound_start"]
+[connection signal="jump_signal" from="Player" to="." method="_on_player_jump_signal"]
 [connection signal="star_collected" from="Power_UP_Spawner" to="." method="_star_collected"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

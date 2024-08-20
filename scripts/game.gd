@@ -5,7 +5,7 @@ signal retry_game()
 signal game_over_signal(state: bool)
 signal seesaw_length_signal(length: float)
 signal enemy_died_signal()
-signal jump_signal()
+signal jump_signal(jumps: int)
 signal dash_signal()
 signal dash_replenish_signal()
 signal star_collected_signal()
@@ -190,8 +190,8 @@ func _return_to_menu():
 func _retry_game():
 	retry_game.emit()
 
-func _on_player_jump_signal():
-	jump_signal.emit()
+func _on_player_jump_signal(jumps: int):
+	jump_signal.emit(jumps)
 
 func _on_player_dash_signal():
 	dash_signal.emit()
