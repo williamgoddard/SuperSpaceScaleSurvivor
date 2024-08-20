@@ -8,7 +8,6 @@ signal enemy_died()
 @export var spawn_radius : float = 200.0
 @export var target_node : Node2D
 @export var kill_node : Node2D
-const POWER_UP = preload("res://scene/power_up.tscn")
 var enemy
 func _ready():
 	pass
@@ -29,20 +28,10 @@ func spawn_enemy():
 	enemy.look_at(target_node.position)
 
 func random_point_on_circle(radius: float) -> Vector2:
-	var angle = randf() * TAU  # TAU is 2 * PI
+	var angle = randf() * TAU
 	var x = radius * cos(angle)
 	var y = radius * sin(angle)
 	return Vector2(x, y)
 
-
-func _on_spawn_enemy_pressed():
-	spawn_enemy()
-	pass # Replace with function body.
-
 func _on_enemy_death():
 	enemy_died.emit()
-
-
-func _on_spawn_power_up_pressed():
-	POWER_UP.instantiate()
-	pass # Replace with function body.

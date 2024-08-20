@@ -20,8 +20,12 @@ const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 @onready var fake_player = $Seesaw/Fake_player
 @onready var canvas_layer = $CanvasLayer
 @onready var gpu_particles_2d = $Seesaw/GPUParticles2D
+@onready var enemies_spawn = $Enemies_spawn
 
 var whackers : Array[Whacker] = []
+
+var time_until_next_enemy := 0.0
+var game_time := 0.0
 
 const MAX_ROTATION_SPEED = 60
 
@@ -62,6 +66,10 @@ var score_delta_tracker := 0.0
 var ground_pound_timer := 0.0
 
 func _process(delta):
+	
+	game_time += delta
+	time_until_next_enemy -= delta
+	
 	seesaw_length -= decay_speed * delta
 	seesaw.rotation_degrees += rotation_speed * delta
 	
@@ -117,6 +125,16 @@ func _process(delta):
 	for whacker in whackers_to_remove:
 		whackers.erase(whacker)
 		whacker.destroy()
+	
+	if not game_over:
+		if time_until_next_enemy <= 0:
+			enemies_spawn.spawn_enemy()
+			var game_time_minutes = game_time / 60.0
+			if game_time_minutes <= 10.0:
+				time_until_next_enemy = (6 - (5 * (log(game_time_minutes+1) / log(10)))) + randf_range(-0.5, 0.5)
+			else:
+				time_until_next_enemy = randf_range(0.1, 1)
+			print("time until next enemy: " + str(time_until_next_enemy))
 
 func _ground_pound():
 	var player_position : float = (player.position.x - 3000) / 48
