@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK2024"
+config/name="Super Space Scale Survivor"
 run/main_scene="res://scene/program.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://logo.png"

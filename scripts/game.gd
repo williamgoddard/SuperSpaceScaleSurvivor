@@ -31,7 +31,7 @@ const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 
 var whackers : Array[Whacker] = []
 
-var time_until_next_enemy := 0.0
+var time_until_next_enemy := 5.0
 var game_time := 0.0
 
 const MAX_ROTATION_SPEED = 60
@@ -71,6 +71,11 @@ const MAX_ROTATION_SPEED = 60
 var score_delta_tracker := 0.0
 
 var ground_pound_timer := 0.0
+
+func _ready():
+	enemies_spawn.spawn_enemy()
+	enemies_spawn.spawn_enemy()
+	enemies_spawn.spawn_enemy()
 
 func _process(delta):
 	
@@ -137,12 +142,13 @@ func _process(delta):
 	
 	if not game_over:
 		if time_until_next_enemy <= 0:
-			enemies_spawn.spawn_enemy()
+			for i in range(randi_range(1,3)):
+				enemies_spawn.spawn_enemy()
 			var game_time_minutes = game_time / 60.0
-			if game_time_minutes <= 10.0:
+			if game_time_minutes <= 5.0:
 				time_until_next_enemy = (6 - (5 * (log(game_time_minutes+1) / log(10)))) + randf_range(-0.5, 0.5)
 			else:
-				time_until_next_enemy = randf_range(0.1, 1)
+				time_until_next_enemy = randf_range(0.1, 0.5)
 			print("time until next enemy: " + str(time_until_next_enemy))
 
 func _ground_pound_start():
@@ -162,7 +168,7 @@ func _enemy_died():
 	enemy_died_signal.emit()
 	
 func _star_collected():
-	seesaw_length += 3.0
+	seesaw_length += 2.0
 	star_collected_signal.emit()
 	score += 5000
 

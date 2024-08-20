@@ -14,12 +14,12 @@ func _process(delta):
 	time_until_next_star -= delta
 	if time_until_next_star <= 0:
 		spawn_star()
-		if game_time < 300:
+		if game_time < 240:
+			time_until_next_star = randf_range(5, 15)
+		elif game_time < 360:
 			time_until_next_star = randf_range(10, 20)
-		elif game_time < 450:
-			time_until_next_star = randf_range(15, 25)
 		else:
-			time_until_next_star = randf_range(20, 30)
+			time_until_next_star = randf_range(15, 25)
 			
 
 func spawn_star():
