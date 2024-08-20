@@ -19,6 +19,7 @@ const GAME_OVER_MENU = preload("res://scene/game_over_menu.tscn")
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var fake_player = $Seesaw/Fake_player
 @onready var canvas_layer = $CanvasLayer
+@onready var gpu_particles_2d = $Seesaw/GPUParticles2D
 
 var whackers : Array[Whacker] = []
 
@@ -181,3 +182,6 @@ func check_if_destroyed():
 	if seesaw_length <= 0.5:
 		seesaw.destroy()
 		offscreen_seesaw.destroy()
+		gpu_particles_2d.emitting = true
+		await get_tree(). create_timer(2.0). timeout
+		gpu_particles_2d.emitting = false
