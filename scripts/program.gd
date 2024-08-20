@@ -171,9 +171,7 @@ func _menu_option_press():
 
 func _change_music_volume(volume: int):
 	music_volume = volume
-	pass
 
 func _change_sound_volume(volume: int):
 	sound_volume = volume
-	pass
 
